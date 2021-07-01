@@ -14,7 +14,7 @@
 이서영 - 프론트엔드
 
 ## 화면 구성
-https://www.figma.com/file/KEtsdeYP2ntP7z0LvG4doI/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=0%3A1
+링크: https://www.figma.com/file/KEtsdeYP2ntP7z0LvG4doI/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=0%3A1
 
 ## 개발 규칙
 Git commit 규칙 :
