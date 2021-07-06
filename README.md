@@ -16,7 +16,7 @@
 
 ## 화면 구성
 [화면구성맵](https://www.figma.com/file/KEtsdeYP2ntP7z0LvG4doI/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84?node-id=0%3A1)
-<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FKEtsdeYP2ntP7z0LvG4doI%2F%25EC%2599%2580%25EC%259D%25B4%25EC%2596%25B4%25ED%2594%2584%25EB%25A0%2588%25EC%259E%2584%3Fnode-id%3D0%253A1" allowfullscreen></iframe>
+
 
 ## 개발 규칙
 Git commit 규칙 :
