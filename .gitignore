@@ -1,3 +1,18 @@
+<<<<<<< HEAD
+node_modules/
+.expo/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# macOS
+.DS_Store
+=======
 
 # Created by https://www.toptal.com/developers/gitignore/api/reactnative,macos,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=reactnative,macos,windows
@@ -349,3 +364,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.toptal.com/developers/gitignore/api/reactnative,macos,windows
+>>>>>>> 034330545b4920f5e484d10c86e20878556d1082
