@@ -1,10 +1,10 @@
 export const fontSizes = {
-    title: '17px',
-    xlarge: '21px',
-    large: '16px',
-    base: '14px',
-    small: '12px',
-    xsmall: '10px',
+    title: 17,
+    xlarge: 21,
+    large: 16,
+    base: 14,
+    small: 12,
+    xsmall: 10,
 };
 
 export const colors = {

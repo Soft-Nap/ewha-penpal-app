@@ -28,7 +28,7 @@ const TabNavigation = () => {
                     bottom: 0,
                     right: 0,
                     left: 0,
-                    height: 90,
+                    height: 100,
                     borderWidth: 1,
                     borderTopWidth: 1,
                     backgroundColor: '#F7F6F5',
