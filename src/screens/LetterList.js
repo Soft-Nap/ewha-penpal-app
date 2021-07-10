@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const Home = ({ navigation }) => {
+const LetterList = () => {
     return (
         <View>
-            <Text>Hello World</Text>
+            <Text>LetterList</Text>
         </View>
     );
 };
 
-export default Home;
+export default LetterList;
