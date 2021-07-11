@@ -92,8 +92,8 @@ const Home = ({ navigation }) => {
             {/* 새로운 편지 */}
             <View style={{ width: '90%' }}>
                 <Subtitle text="새로운 편지" bold="true" />
-                <NewButton status="receive" onPress={() => navigation.navigate("오는 편지")}/>
-                <NewButton status="send" onPress={() => navigation.navigate("가는 편지")}/>
+                <NewButton status="receive" onPress={() => navigation.navigate("HomeReceived")}/>
+                <NewButton status="send" onPress={() => navigation.navigate("HomeSending")}/>
             </View>
         </SafeAreaView>
     );
