@@ -8,7 +8,7 @@ const NewButton = (props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.8}
-            // onPress={props.onPress}
+            onPress={props.onPress}
             style={{
                 backgroundColor: props.status === 'send' ? colors.green : colors.pink,
                 alignItems: 'center',

@@ -7,6 +7,7 @@ import Home from '../screens/Home';
 import LetterList from '../screens/LetterList';
 import Find from '../screens/Find';
 import More from '../screens/More';
+import HomeStack from './HomeStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,7 +42,7 @@ const TabNavigation = () => {
         >
             <Tab.Screen 
                 name="Home" 
-                component={Home} 
+                component={HomeStack} 
                 options={{
                     tabBarIcon: props => TabIcon({ ...props, name:"home"}),
                 }}
