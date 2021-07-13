@@ -3,10 +3,10 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons, Ionicons } from '@expo/vector-icons';
 
 import { colors } from '../Theme';
-import Home from '../screens/Home';
-import LetterList from '../screens/LetterList';
 import Find from '../screens/Find';
 import More from '../screens/More';
+import HomeStack from './HomeStack';
+import ListStack from './ListStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -41,14 +41,14 @@ const TabNavigation = () => {
         >
             <Tab.Screen 
                 name="Home" 
-                component={Home} 
+                component={HomeStack} 
                 options={{
                     tabBarIcon: props => TabIcon({ ...props, name:"home"}),
                 }}
             />
             <Tab.Screen 
                 name="List" 
-                component={LetterList} 
+                component={ListStack} 
                 options={{
                     tabBarIcon: props => TabIcon({ ...props, name:"email-outline"}),
                 }}
