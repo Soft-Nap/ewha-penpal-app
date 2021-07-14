@@ -7,6 +7,7 @@ import Find from '../screens/Find';
 import More from '../screens/More';
 import HomeStack from './HomeStack';
 import ListStack from './ListStack';
+import FindStack from './FindStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -54,8 +55,8 @@ const TabNavigation = () => {
                 }}
             />
             <Tab.Screen 
-                name="Find" 
-                component={Find} 
+                name="Find " 
+                component={FindStack} 
                 options={{
                     tabBarIcon: props => TabIcon({ ...props, name:"account-search"}),
                 }}

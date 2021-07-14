@@ -88,7 +88,7 @@ const Item = () => {
     const theme = useContext(ThemeContext);
 
     return (
-        <Pad>
+           <Pad>
             <MailHeader>
                 <HeaderText>
                     <Person>To.받는 사람</Person>
@@ -107,7 +107,8 @@ const Item = () => {
             <MailFooter>
                 <Person>From.보내는 사람</Person>
             </MailFooter>
-        </Pad>
+        </Pad> 
+        
     );
 };
 
@@ -119,7 +120,7 @@ const Mail = ({ navigation, route: { params }}) => {
             <MaterialIcons name="send"
             size={30}
             style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('List')} />
+            onPress={() => navigation.navigate('Send')} />
           ),
         });
       }, []);
