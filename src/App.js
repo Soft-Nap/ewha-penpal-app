@@ -1,12 +1,18 @@
 import { NavigationContainer } from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import TabNavigation from './navigations/Tab';
-import HomeStack from './navigations/HomeStack';
+import AuthStack from './navigations/AuthStack';
 
 const App = () => {
+    // 인증 데이터 관련
+    // const { inProgress } = useContext(ProgressContext);
+    // const { user } = useContext(UserContext);
+
     return (
         <NavigationContainer>
-            <TabNavigation />
+            <AuthStack />
+            {/* user?.uid && user?.email ? <TabNavigation /> : <AuthStack /> */}
+            {/* inProgress && <Spinner /> */}
         </NavigationContainer>
     )
 }
