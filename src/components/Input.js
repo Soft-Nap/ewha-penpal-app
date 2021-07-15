@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 const Input = forwardRef(
   (
     {
-      label,
       value,
       onChangeText,
       onSubmitEditing,

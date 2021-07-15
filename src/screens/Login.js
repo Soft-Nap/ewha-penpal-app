@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { SafeAreaView, Text, Image, View } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Input from "../components/Input";
@@ -12,6 +12,11 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState("");
   const passwordRef = useRef();
   const [errorMessage, setErrorMessage] = useState("");
+  const [disabled, setDisabled] = useState(true);
+
+  useEffect(() => {
+    setDisabled(!(email && password && !errorMessage));
+  }, [email, password, errorMessage]);
 
   // 이메일 공백 제거 및 오류 검사
   const _handleEmailChange = (email) => {
@@ -27,10 +32,13 @@ const Login = ({ navigation }) => {
     setPassword(removeWhitespace(password));
   };
 
+  const _handleLoginButtonPress = () => {};
+
   return (
     <KeyboardAwareScrollView
       contentContainerStyle={{ flex: 1 }}
       extraScrollHeight={20}
+      scrollEnabled={false}
     >
       <SafeAreaView
         style={{
@@ -64,12 +72,16 @@ const Login = ({ navigation }) => {
             label="Password"
             value={password}
             onChangeText={_handlePasswordChange}
-            onSubmitEditing={() => {}}
-            placeholder="Password"
+            onSubmitEditing={_handleLoginButtonPress}
+            placeholder="비밀번호"
             returnKeyType="done"
             isPassword
           />
-          <LoginButton text="로그인" />
+          <LoginButton
+            title="로그인"
+            onPress={_handleLoginButtonPress}
+            disabled={disabled}
+          />
         </View>
 
         {/* 회원가입 문구 */}
