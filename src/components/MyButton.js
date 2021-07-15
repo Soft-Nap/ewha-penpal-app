@@ -6,6 +6,7 @@ const MyButton = (props) => {
     return (
         <TouchableOpacity
             activeOpacity={0.8}
+            onPress={props.onPress}
             style={{
                 backgroundColor: colors.green,
                 alignItems: 'center',
