@@ -159,7 +159,10 @@ const Signup = () => {
               style={selected ? styles.selected : styles.unselected}
               onPress={() => setSelected(!selected)}
             />
-            <Text style={{ fontSize: fontSizes.base, color: "black" }}>
+            <Text
+              onPress={() => setSelected(!selected)}
+              style={{ fontSize: fontSizes.base, color: "black" }}
+            >
               이용 약관에 동의합니다.
             </Text>
           </View>
