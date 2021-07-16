@@ -85,7 +85,7 @@ const Login = ({ navigation }) => {
         </View>
 
         {/* 회원가입 문구 */}
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
           <Text
             style={{
               marginTop: 15,
