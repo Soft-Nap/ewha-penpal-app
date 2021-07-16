@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { colors } from "../Theme";
@@ -7,10 +7,19 @@ import HomeReceived from "../screens/HomeReceived";
 import HomeSending from "../screens/HomeSending";
 import { Platform } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const HomeStack = ({ navigation, route }) => {
+  useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    if (routeName === "HomeReceived" || routeName === "HomeSending") {
+      navigation.setOptions({ tabBarVisible: false });
+    } else {
+      navigation.setOptions({ tabBarVisible: true });
+    }
+  }, [navigation, route]);
   return (
     <Stack.Navigator
       screenOptions={{
