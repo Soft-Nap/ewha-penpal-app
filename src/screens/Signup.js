@@ -51,6 +51,7 @@ const Signup = () => {
     <KeyboardAwareScrollView
       contentContainerStyle={{ flex: 1 }}
       extraScrollHeight={20}
+      scrollEnabled={false}
     >
       <SafeAreaView
         style={{
@@ -123,8 +124,18 @@ const Signup = () => {
 
           {/* 약관 */}
           <Text style={styles.label}>이용 약관</Text>
-          <ScrollView style={styles.terms}>
-            <Text>
+          <ScrollView
+            showsVerticalScrollIndicator={false} // 스크롤바 숨김 (iOS only)
+            contentInset={{ bottom: 30 }} // 하단 텍스트 잘림 방지 (iOS only)
+            style={styles.terms}
+          >
+            <Text
+              style={{
+                fontSize: fontSizes.base,
+                color: "black",
+                textAlign: "justify",
+              }}
+            >
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
               iaculis, odio et malesuada tincidunt, mauris nibh aliquet nibh, in
               tempus magna massa non elit. Vivamus eget dui sed elit ullamcorper
