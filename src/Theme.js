@@ -8,6 +8,7 @@ export const fontSizes = {
 };
 
 export const colors = {
+    black: '#000000',
     white: '#FFFFFF',
     beige: '#F4EFEC',
     pink: '#F0D9D1',

@@ -1,16 +1,17 @@
 import React from 'react';
 import {View, Button, Pressable, ImageBackground} from 'react-native';
-import styled, {ThemeContext} from 'styled-components/native';
+import styled from 'styled-components/native';
 import { Entypo } from '@expo/vector-icons';
+import {colors} from '../Theme';
 
 const Container = styled.View`
     flex: 1;
-    background-color: #ffffff;
+    background-color:  ${colors.white};
     align-items: center;
 `;
 {/*화면 위 여백*/}
 const FindHeader = styled.View`
-background-color: #ffffff;
+background-color:  ${colors.white};
 height: 200px;
 align-items: center;
 `;
@@ -18,31 +19,50 @@ align-items: center;
 const Friend = styled.View`
     flex-direction: column;
     align-items: center;
-    height: 336px;
-    width: 275px;
+    height: 257px;
+    width: 257px;
+    background-color:  ${colors.beige};
     border-width: 1px;
-    border-color: #000000;
+    border-color:  ${colors.black};
     border-radius: 20px;
     padding: 20px 20px;
 `;
 
 const FindFooter = styled.View`
-background-color: #ffffff;
+background-color:  ${colors.white};
 height: 200px;
 width: 275px
 align-items: center;
 flex-direction: row;
 `;
 
-const tag = styled.View`
-flex-direction: column;
-align-items: center;
-height: 400px;
-width: 400px;
-border-width: 1px;
-border-color: #000000;
-border-radius: 20px;
-padding: 20px 20px;
+const Name = styled.Text`
+    font-size: 16px;
+    font-weight: 600;
+`;
+
+const Description = styled.Text`
+    font-size: 14px;
+    margin-top: 5px;
+    color:  ${colors.black};
+`;
+const TagArea = styled.View`
+    background-color:  ${colors.beige};
+    height: 40px;
+    width: 250px;
+    align-items: center;
+    flex-direction: row;
+`;
+
+const Tag = styled.View`
+    align-items: center;
+    height: 40px;
+    width: 80px;
+    background-color:  ${colors.pink};
+    margin-right: 5px;
+    border-width: 1px;
+    border-color:  ${colors.black};
+    border-radius: 20px;
 `;
 
 
@@ -53,6 +73,10 @@ const Find = ({ navigation }) => {
             </FindHeader>
             <Pressable onPress={() => navigation.navigate('FindDetail')}>
                 <Friend>
+                    <Name>이름</Name>
+                    <Description>조금 멀리 있음</Description>
+                    <Description>짧막 소개</Description>
+                    <TagArea><Tag/><Tag/><Tag/></TagArea>
                 </Friend>
             </Pressable>
             <FindFooter>
