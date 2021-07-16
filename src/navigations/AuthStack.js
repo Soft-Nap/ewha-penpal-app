@@ -1,16 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-
-import { colors } from "../Theme";
-import Home from "../screens/Home";
-import HomeReceived from "../screens/HomeReceived";
-import HomeSending from "../screens/HomeSending";
-import { Platform } from "react-native";
+import Login from "../screens/Login";
+import Signup from "../screens/Signup";
 import { FontAwesome } from "@expo/vector-icons";
+import { colors } from "../Theme";
 
 const Stack = createStackNavigator();
 
-const HomeStack = () => {
+const AuthStack = () => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -38,22 +35,17 @@ const HomeStack = () => {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="Login"
+        component={Login}
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="HomeReceived"
-        component={HomeReceived}
-        options={{ headerTitle: "오는 편지" }}
-      />
-      <Stack.Screen
-        name="HomeSending"
-        component={HomeSending}
-        options={{ headerTitle: "가는 편지" }}
+        name="Signup"
+        component={Signup}
+        options={{ headerTitle: "회원가입" }}
       />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default AuthStack;
