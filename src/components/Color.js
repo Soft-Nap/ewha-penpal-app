@@ -11,10 +11,11 @@ const Color = (props) => {
             style={{
                 height: 40,
                 width: 40,
-                backgroundColor: props.status === 'red' ? colors.red : colors.pink,
+                backgroundColor: props.color,
                 borderRadius: 15,
                 borderColor: 'black',
                 borderWidth: 1,
+                marginRight: 10,
             }}
         >     
         </Pressable>

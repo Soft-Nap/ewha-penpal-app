@@ -3,6 +3,7 @@ import styled, {ThemeContext} from 'styled-components/native';
 import { ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
+import Stamp from '../components/Stamp';
 
 const Container = styled.View`
     flex: 1;
@@ -66,7 +67,7 @@ const Time = styled.Text`
     font-size: 12px;
     color: ${colors.black};
 `;
-
+{/*
 const Stamp = styled.Image`
     width: 60px;
     height: 60px;
@@ -74,6 +75,7 @@ const Stamp = styled.Image`
     border-color: ${colors.black};
     background-color: ${colors.green};
 `;
+*/}
 
 const channels = [];
 for (let idx = 0; idx < 5; idx++)

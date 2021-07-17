@@ -5,13 +5,15 @@ import { MaterialIcons } from '@expo/vector-icons';
 import Line from '../components/Line';
 import Subtitle from '../components/Subtitle';
 import {colors} from '../Theme';
+import Profile from '../components/Profile';
+import {Images} from '../images/Images';
 
 const Container = styled.View`
     height: 400px;
     background-color: ${colors.white};
     align-items: center;
 `;
-
+{/*
 const Profile = styled.Image`
     width: 180px;
     height: 180px;
@@ -20,6 +22,7 @@ const Profile = styled.Image`
     border-color: ${colors.black};
     background-color: ${colors.grey};
 `;
+*/}
 
 const Name = styled.Text`
     font-size: 21px;
@@ -114,7 +117,7 @@ const FindDetail = ({ navigation }) => {
             }}
         >
           <Container>
-            <Profile />
+            <Profile size = {180} imageUri = {Images.logo.uri}/>
             <Name>이름</Name>
             <Description>멀리 떨어져 있음</Description>
               <Tags/>

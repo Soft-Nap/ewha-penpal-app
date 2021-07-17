@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Modal, StyleSheet, Text, View, Pressable, TouchableOpacity, ScrollView } from "react-native";
+import { Modal, StyleSheet, Text, View, Pressable, TouchableOpacity, ScrollView, Image } from "react-native";
 import styled from 'styled-components/native';
 import {colors} from '../Theme';
+import Stamp from '../components/Stamp';
+import {Images} from '../images/Images';
 
+{/*
 const Stamp = styled.Image`
     width: 60px;
     height: 60px;
@@ -10,7 +13,7 @@ const Stamp = styled.Image`
     border-color: ${colors.black};
     background-color: ${colors.grey};
     margin-right: 5px;
-`;
+`; */}
 
 class ModalStamp extends Component {
   state = {
@@ -38,14 +41,14 @@ class ModalStamp extends Component {
                     <Text style={styles.modalText}>나의 우표 보관함</Text>
                     <View style={styles.stampView}>
                         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-                            <Stamp/><Stamp/><Stamp/><Stamp/><Stamp/>
+                          <Stamp/><Stamp/><Stamp/><Stamp/><Stamp/>
                         </ScrollView>
                     </View>
                 </View>
             </TouchableOpacity>
         </Modal>
         <Pressable onPress={() => {this.setModalVisible(true);}}>
-            <Stamp/>
+            <Stamp imageUri = {Images.logo.uri}/>
         </Pressable>
       </View>
     );

@@ -17,3 +17,16 @@ export const colors = {
     yellow: '#E0C389',
     red: '#FF8484',
 };
+
+{/*편지지 색을 위한 것입니다.*/}
+export const White = {
+    value: '#FFFFFF',
+};
+
+export const Pink = {
+    value: '#F0D9D1',
+};
+
+export const Beige = {
+    value: '#F4EFEC',
+};

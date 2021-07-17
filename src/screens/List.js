@@ -3,6 +3,7 @@ import styled, {ThemeContext} from 'styled-components/native';
 import { FlatList } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
+import Profile from '../components/Profile';
 
 const Container = styled.View`
     flex: 1;
@@ -39,6 +40,7 @@ const ItemTime = styled.Text`
     color: ${colors.black};
 `;
 
+{/*
 const Profile = styled.Image`
     width: 60px;
     height: 60px;
@@ -47,6 +49,7 @@ const Profile = styled.Image`
     border-color: ${colors.black};
     background-color: ${colors.grey};
 `;
+*/}
 
 const channels = [];
 for (let idx = 0; idx < 5; idx++)
@@ -64,7 +67,7 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
 
     return (
         <ItemContainer onPress={() => onPress({ id, title })} >
-            <Profile/>
+            <Profile size = {60}/>
             <ItemTextContainer>
                 <ItemTitle>{title}</ItemTitle>
                 <ItemDescription>{description}</ItemDescription>

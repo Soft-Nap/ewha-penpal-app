@@ -1,10 +1,11 @@
 import React, { useContext, useLayoutEffect, useState } from 'react';
-import styled from 'styled-components/native';
+import styled, {ThemeProvider} from 'styled-components/native';
 import { Modal, Pressable, Alert} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Color from '../components/Color';
-import {colors} from '../Theme';
+import {colors, White, Pink,Beige} from '../Theme';
 import StampModal from '../components/StampModal';
+import Profile from '../components/Profile';
 
 
 const Container = styled.View`
@@ -18,6 +19,7 @@ const Pad = styled.View`
     align-items: center;
     height: 600px;
     width: 345px;
+    background-color: ${props => props.theme.value};
     border-width: 1px;
     border-color: ${colors.black};
     border-radius: 20px;
@@ -47,10 +49,11 @@ const MailFooter = styled.View`
 `;
 
 const HeaderText = styled.View`
-flex: 1;
-flex-direction: column;
-height: 60px;
-width: 300px;
+    flex: 1;
+    flex-direction: column;
+    height: 60px;
+    width: 300px;
+    margin-left: 5px;
 `;
 
 const Person = styled.Text`
@@ -63,24 +66,33 @@ const Time = styled.Text`
     color: ${colors.black};
 `;
 
+{/*
 const Stamp = styled.Image`
     width: 60px;
     height: 60px;
     border-width: 1px;
     border-color: ${colors.black};
     background-color: ${colors.grey};
-`;
+`; */}
 
 const Input = styled.TextInput`
-    returnKeyType="done";
     font-size: 14px;
 `;
 
+const ColorSelectArea = styled.View`
+    flex-direction: row;
+    height: 80px;
+    width: 345px;
+    padding: 20px 0px;
+`;
+
 const Item = () => {
-    const [text, setText] = useState('');
+    const [padColor, setColor] = useState(White);
     return (
-           <Pad>
+            <ThemeProvider theme = {padColor}>
+              <Pad>
             <MailHeader>
+                <Profile size={50} />
                 <HeaderText>
                     <Person>To.받는 사람</Person>
                     <Time>떨어진 거리</Time>
@@ -99,7 +111,15 @@ const Item = () => {
             <MailFooter>
                 <Person>From.보내는 사람</Person>
             </MailFooter>
-        </Pad> 
+        </Pad>
+        {/*편지지 색 바꾸기*/}
+        <ColorSelectArea>
+            <Color color= {colors.beige} onPress={() => setColor(Beige)}/>
+            <Color color= {colors.pink} onPress={() => setColor(Pink)}/>
+            <Color color= {colors.white} onPress={() => setColor(White)}/>
+        </ColorSelectArea>   
+            </ThemeProvider>
+           
     );
 };
 
@@ -128,7 +148,6 @@ const Send = ({ navigation }) => {
     return (
         <Container>
             <Item />
-            <Color status="blue" onPress={() => Alert.alert("색 선택")}/>
         </Container>
     );
 };
