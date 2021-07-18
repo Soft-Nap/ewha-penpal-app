@@ -46,7 +46,7 @@ const FindStack = () => {
             <Stack.Screen 
                 name="Send" 
                 component={Send} 
-                options={{ headerTitle: '편지 발송' }}
+                options={{ headerTitle: '편지 작성' }}
             />
             <Stack.Screen 
                 name="SendCheck" 

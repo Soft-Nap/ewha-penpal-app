@@ -6,6 +6,7 @@ import Item from '../screens/ListItem';
 import Mail from '../screens/ListMail';
 import Temp from '../screens/ListTemp';
 import Send from '../screens/Send';
+import SendCheck from '../screens/SendCheck';
 import { Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
@@ -59,6 +60,11 @@ const ListStack = () => {
                 name="Send" 
                 component={Send} 
                 options={{ headerTitle: '편지 발송' }}
+            />
+            <Stack.Screen 
+                name="SendCheck" 
+                component={SendCheck} 
+                options={{ headerTitle: '편지 발송 완료!', headerBackTitleVisible: false }}
             />
             
         </Stack.Navigator>

@@ -1,20 +1,20 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity, Image } from "react-native";
 import { colors } from "../Theme";
 
-const Stamp = () => {
+const Stamp = (props) => {
   return (
-    <View
+    <Image
       style={{
         width: 50,
         height: 50,
-        backgroundColor: colors.white,
-        borderColor: "black",
         borderWidth: 1,
+        borderColor: colors.black,
+        marginRight: 5,
+        backgroundColor: colors.green,
       }}
-    >
-      <View></View>
-    </View>
+      source={props.imageUri}
+    />
   );
 };
 
