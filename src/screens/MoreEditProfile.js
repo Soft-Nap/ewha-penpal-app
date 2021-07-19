@@ -79,8 +79,8 @@ const styles = StyleSheet.create({
     borderColor: "black",
   },
   boxBackgroundInside: {
-    width: "95%",
-    height: 215,
+    width: "96%",
+    height: "95%",
     backgroundColor: colors.beige,
     borderColor: "black",
     borderRadius: 15,

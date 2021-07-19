@@ -1,11 +1,16 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { SafeAreaView, Text } from "react-native";
+import { colors, fontSizes } from "../Theme";
 
 const MorePassword = () => {
   return (
-    <View>
-      <Text>Page</Text>
-    </View>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: colors.white,
+        alignItems: "center",
+      }}
+    ></SafeAreaView>
   );
 };
 

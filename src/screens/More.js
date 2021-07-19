@@ -74,7 +74,7 @@ const More = ({ navigation }) => {
       <ScrollView style={{ width: "90%" }}>
         <MoreButton text="푸쉬 알림" isToggle />
         <MoreButton
-          text="비밀번호 수정"
+          text="비밀번호 변경"
           onPress={() => {
             navigation.navigate("Password");
           }}
@@ -85,7 +85,7 @@ const More = ({ navigation }) => {
             navigation.navigate("Notice");
           }}
         />
-        <MoreButton text="로그아웃" />
+        <MoreButton text="로그아웃" onPress={() => console.log("Logout")} />
         <MoreButton
           text="회원 탈퇴"
           onPress={() => {
