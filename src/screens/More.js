@@ -4,7 +4,7 @@ import { colors, fontSizes } from "../Theme";
 import { AntDesign } from "@expo/vector-icons";
 import MoreButton from "../components/MoreButton";
 
-const More = () => {
+const More = ({ navigation }) => {
   return (
     <SafeAreaView
       style={{
@@ -52,7 +52,14 @@ const More = () => {
                   주소
                 </Text>
               </View>
-              <AntDesign name="right" size={24} color="black" />
+              <AntDesign
+                name="right"
+                size={24}
+                color="black"
+                onPress={() => {
+                  navigation.navigate("EditProfile");
+                }}
+              />
             </View>
             {/* 유저 소개 */}
             <View style={{ marginTop: 20, marginLeft: 20, width: "90%" }}>
@@ -66,10 +73,25 @@ const More = () => {
       {/* 기타 메뉴 리스트 */}
       <ScrollView style={{ width: "90%" }}>
         <MoreButton text="푸쉬 알림" isToggle />
-        <MoreButton text="비밀번호 수정" />
-        <MoreButton text="공지사항" />
+        <MoreButton
+          text="비밀번호 수정"
+          onPress={() => {
+            navigation.navigate("Password");
+          }}
+        />
+        <MoreButton
+          text="공지사항"
+          onPress={() => {
+            navigation.navigate("Notice");
+          }}
+        />
         <MoreButton text="로그아웃" />
-        <MoreButton text="회원 탈퇴" />
+        <MoreButton
+          text="회원 탈퇴"
+          onPress={() => {
+            navigation.navigate("DelAccount");
+          }}
+        />
       </ScrollView>
     </SafeAreaView>
   );

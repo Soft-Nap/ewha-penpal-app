@@ -4,7 +4,7 @@ import { MaterialCommunityIcons, Ionicons } from "@expo/vector-icons";
 
 import { colors } from "../Theme";
 import Find from "../screens/Find";
-import More from "../screens/More";
+import MoreStack from "./MoreStack";
 import HomeStack from "./HomeStack";
 import ListStack from "./ListStack";
 import FindStack from "./FindStack";
@@ -65,7 +65,7 @@ const TabNavigation = () => {
       />
       <Tab.Screen
         name="More"
-        component={More}
+        component={MoreStack}
         options={{
           tabBarIcon: (props) =>
             TabIcon({ ...props, name: "reorder-three", source: "ionicons" }),
