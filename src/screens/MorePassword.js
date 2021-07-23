@@ -40,7 +40,7 @@ const MorePassword = () => {
     );
   }, [password, passwordConfirm && passwordConfAgain && errorMessage]);
 
-  const _handleSignupButtonPress = () => {};
+  const _handleChangeButtonPress = () => {};
 
   return (
     <KeyboardAwareScrollView
@@ -90,6 +90,7 @@ const MorePassword = () => {
             onChangeText={(text) =>
               setPasswordConfAgain(removeWhitespace(text))
             }
+            onSubmitEditing={_handleChangeButtonPress}
             returnKeyType="done"
             isPassword
           />
@@ -99,7 +100,7 @@ const MorePassword = () => {
         <View style={{ width: "90%", position: "absolute", bottom: 50 }}>
           <SignupButton
             title="변경하기"
-            onPress={_handleSignupButtonPress}
+            onPress={_handleChangeButtonPress}
             disabled={disabled}
           />
           <Text

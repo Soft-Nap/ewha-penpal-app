@@ -1,9 +1,15 @@
 import React from "react";
-import { StyleSheet, View, Text, ImageBackground } from "react-native";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Stamp from "./Stamp";
 
-const LetterCard = ({ letterType }) => {
+const LetterCard = ({ letterType, onPress }) => {
   const getStyle = () => {
     // 편지지 종류에 따라 다른 스타일 리턴
     if (letterType === "yellow") {
@@ -16,7 +22,9 @@ const LetterCard = ({ letterType }) => {
   };
 
   return (
-    <View
+    <TouchableOpacity
+      onPress={onPress}
+      activeOpacity={0.8}
       style={{
         width: 275,
         height: 160,
@@ -79,7 +87,7 @@ const LetterCard = ({ letterType }) => {
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

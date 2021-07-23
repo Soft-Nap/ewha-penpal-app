@@ -5,6 +5,7 @@ import { colors } from "../Theme";
 import Home from "../screens/Home";
 import HomeReceived from "../screens/HomeReceived";
 import HomeSending from "../screens/HomeSending";
+import HomeMail from "../screens/HomeMail";
 import { Platform } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -60,6 +61,11 @@ const HomeStack = ({ navigation, route }) => {
         name="HomeSending"
         component={HomeSending}
         options={{ headerTitle: "가는 편지" }}
+      />
+      <Stack.Screen
+        name="HomeMail"
+        component={HomeMail}
+        options={{ headerTitle: "" }}
       />
     </Stack.Navigator>
   );
