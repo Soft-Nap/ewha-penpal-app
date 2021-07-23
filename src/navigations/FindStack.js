@@ -40,7 +40,7 @@ const FindStack = () => {
             <Stack.Screen 
                 name="FindDetail" 
                 component={FindDetail}  
-                options={{ headerTitle: '친구 찾기 자세히' }}
+                options={{ headerTitle: '프로필' }}
                 
             />
             <Stack.Screen 

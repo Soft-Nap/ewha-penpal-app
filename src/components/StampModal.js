@@ -41,14 +41,17 @@ class ModalStamp extends Component {
                     <Text style={styles.modalText}>나의 우표 보관함</Text>
                     <View style={styles.stampView}>
                         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-                          <Stamp/><Stamp/><Stamp/><Stamp/><Stamp/>
+                          <Pressable onPress={() => {}}>
+                            <Stamp/>
+                          </Pressable>
+                          <Stamp/><Stamp/><Stamp/><Stamp/>
                         </ScrollView>
                     </View>
                 </View>
             </TouchableOpacity>
         </Modal>
         <Pressable onPress={() => {this.setModalVisible(true);}}>
-            <Stamp imageUri = {Images.logo.uri}/>
+            <Stamp/>
         </Pressable>
       </View>
     );

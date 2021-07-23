@@ -3,6 +3,7 @@ import styled, {ThemeContext} from 'styled-components/native';
 import { ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
+import {Images} from '../images/Images';
 import Stamp from '../components/Stamp';
 
 const Container = styled.View`
@@ -98,7 +99,7 @@ const Item = () => {
                     <Person>To.받는 사람</Person>
                     <Time>보낸 시간</Time>
                 </HeaderText>
-                <Stamp/>
+                <Stamp imageUri = {Images.logo.uri}/>
             </MailHeader>
             <ScrollView showsVerticalScrollIndicator = {false}> 
               <MailContents>

@@ -14,11 +14,11 @@ const SendCheck = ({ navigation }) => {
             alignItems: 'center',
              }}>
             <View style={{ width: '90%', height: 300, alignItems: 'center', }}>
-                {/*이미지*/}
                 <Subtitle text="00님에게 편지를 나르는 중..." bold="true" />
                 <Subtitle text="남은 시간: " />
+                {/*이미지 추가 필요*/}
             </View>
-            <View>
+            <View style={{ width: "90%" }}>
                 {/*스택 초기화 후 홈화면으로 이동, 뒤로가기 안됨*/}
                 <MyButton text="Home" onPress={() => navigation.dispatch(
                     CommonActions.reset({

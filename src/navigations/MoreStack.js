@@ -2,24 +2,29 @@ import React, { useLayoutEffect } from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import { colors } from "../Theme";
-import Home from "../screens/Home";
-import HomeReceived from "../screens/HomeReceived";
-import HomeSending from "../screens/HomeSending";
+import More from "../screens/More";
+import MoreEditProfile from "../screens/MoreEditProfile";
+import MorePassword from "../screens/MorePassword";
+import MoreNotice from "../screens/MoreNotice";
+import MoreDelAccount from "../screens/MoreDelAccount";
+import MoreNoticeDetail from "../screens/MoreNoticeDetail";
+
 import { Platform } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
-const HomeStack = ({ navigation, route }) => {
+const MoreStack = ({ navigation, route }) => {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === "HomeReceived" || routeName === "HomeSending") {
-      navigation.setOptions({ tabBarVisible: false });
-    } else {
+    if (routeName === "More") {
       navigation.setOptions({ tabBarVisible: true });
+    } else {
+      navigation.setOptions({ tabBarVisible: false });
     }
   }, [navigation, route]);
+
   return (
     <Stack.Navigator
       screenOptions={{
@@ -47,22 +52,38 @@ const HomeStack = ({ navigation, route }) => {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
-        options={{ headerShown: false }}
+        name="More"
+        component={More}
+        options={{ headerTitle: "더보기" }}
       />
       <Stack.Screen
-        name="HomeReceived"
-        component={HomeReceived}
-        options={{ headerTitle: "오는 편지" }}
+        name="EditProfile"
+        component={MoreEditProfile}
+        options={{ headerTitle: "내 프로필" }}
       />
       <Stack.Screen
-        name="HomeSending"
-        component={HomeSending}
-        options={{ headerTitle: "가는 편지" }}
+        name="Password"
+        component={MorePassword}
+        options={{ headerTitle: "비밀번호 변경" }}
+      />
+      <Stack.Screen
+        name="Notice"
+        component={MoreNotice}
+        options={{ headerTitle: "공지사항" }}
+      />
+      <Stack.Screen
+        name="NoticeDetail"
+        component={MoreNoticeDetail}
+        options={{ headerTitle: "" }}
+      />
+
+      <Stack.Screen
+        name="DelAccount"
+        component={MoreDelAccount}
+        options={{ headerTitle: "회원 탈퇴" }}
       />
     </Stack.Navigator>
   );
 };
 
-export default HomeStack;
+export default MoreStack;
