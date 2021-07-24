@@ -21,7 +21,9 @@ const MorePassword = () => {
 
   useEffect(() => {
     let _errorMessage = "";
-    if (password !== "user password") {
+    if (password === "" && passwordConfirm === "" && passwordConfAgain === "") {
+      _errorMessage = "";
+    } else if (password !== "user password") {
       // 수정 필요
       _errorMessage = "비밀번호를 정확히 입력해주세요.";
     } else if (passwordConfirm !== passwordConfAgain) {

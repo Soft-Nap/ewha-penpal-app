@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Text } from "react-native";
+import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
@@ -14,33 +14,53 @@ const MoreEditProfile = () => {
         alignItems: "center",
       }}
     >
-      {/* 유저 프로필 및 위치 */}
-      <View>
-        {/* 프로필 사진 추가 필요 */}
-        <LocationPicker />
-      </View>
+      <ScrollView
+        style={{ width: "100%" }}
+        contentContainerStyle={{ alignItems: "center" }}
+      >
+        {/* 유저 프로필 및 위치 */}
+        <View>
+          {/* 프로필 사진 추가 필요 */}
+          <Text
+            style={{
+              fontSize: fontSizes.xlarge,
+              color: colors.black,
+              fontWeight: "bold",
+              textAlign: "center",
+              marginBottom: 5,
+            }}
+          >
+            닉네임
+          </Text>
+          <LocationPicker />
+        </View>
 
-      {/* 관심사 */}
-      <View style={{ width: "90%" }}>
-        <Line />
-        <Subtitle text="관심사" />
-        <View style={{ height: 235, marginBottom: 50 }}>
-          <View style={styles.boxBackgroundPink}>
-            <View style={styles.boxBackgroundInside}></View>
+        {/* 관심사 */}
+        <View style={{ width: "90%" }}>
+          <Line />
+          <Subtitle text="관심사" />
+          <View style={{ height: 235, marginBottom: 50 }}>
+            <View style={styles.boxBackgroundPink}>
+              <View style={styles.boxBackgroundInside}></View>
+            </View>
           </View>
         </View>
-      </View>
 
-      {/* 자기소개 */}
-      <View style={{ width: "90%" }}>
-        <Line />
-        <Subtitle text="자기소개" />
-        <View style={{ height: 235, marginBottom: 50 }}>
-          <View style={styles.boxBackground}>
-            <View style={styles.boxBackgroundInside}></View>
+        {/* 자기소개 */}
+        <View style={{ width: "90%" }}>
+          <Line />
+          <Subtitle text="자기소개" />
+          <View style={{ height: 235, marginBottom: 50 }}>
+            <View style={styles.boxBackground}>
+              <View style={styles.boxBackgroundInside}>
+                <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
+                  자기소개
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -82,10 +102,10 @@ const styles = StyleSheet.create({
     width: "96%",
     height: "95%",
     backgroundColor: colors.beige,
+    padding: 20,
     borderColor: "black",
     borderRadius: 15,
     borderWidth: 1,
-    alignItems: "center",
   },
 });
 

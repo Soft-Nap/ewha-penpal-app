@@ -27,11 +27,13 @@ const Signup = () => {
 
   useEffect(() => {
     let _errorMessage = "";
-    if (!validateEmail(email)) {
+    if (email === "" && password === "" && passwordConfirm === "") {
+      _errorMessage = "";
+    } else if (!validateEmail(email)) {
       _errorMessage = "올바른 이메일 형식을 입력해주세요.";
-    } else if (password.length < 6) {
+    } else if (password !== "" && password.length < 6) {
       _errorMessage = "비밀번호는 6글자 이상으로 설정해주세요.";
-    } else if (password !== passwordConfirm) {
+    } else if (passwordConfirm !== "" && password !== passwordConfirm) {
       _errorMessage = "비밀번호를 정확히 입력해주세요.";
     } else {
       _errorMessage = "";
