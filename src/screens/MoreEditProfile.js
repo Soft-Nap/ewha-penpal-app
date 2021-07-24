@@ -4,6 +4,7 @@ import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
+import DistancePicker from "../components/DistancePicker";
 
 const MoreEditProfile = () => {
   return (
@@ -19,7 +20,7 @@ const MoreEditProfile = () => {
         contentContainerStyle={{ alignItems: "center" }}
       >
         {/* 유저 프로필 및 위치 */}
-        <View>
+        <View style={{ alignItems: "center" }}>
           {/* 프로필 사진 추가 필요 */}
           <Text
             style={{
@@ -27,12 +28,13 @@ const MoreEditProfile = () => {
               color: colors.black,
               fontWeight: "bold",
               textAlign: "center",
-              marginBottom: 5,
+              marginBottom: 8,
             }}
           >
             닉네임
           </Text>
           <LocationPicker />
+          <DistancePicker />
         </View>
 
         {/* 관심사 */}
