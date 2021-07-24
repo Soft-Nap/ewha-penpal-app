@@ -9,9 +9,9 @@ import Profile from '../components/Profile';
 import {Images} from '../images/Images';
 import Tag from '../components/Tag';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+import constants from '../utils/constants';
 
 const Container = styled.View`
-    height: 400px;
     background-color: ${colors.white};
     align-items: center;
     justify-content: center;
@@ -127,6 +127,7 @@ const FindDetail = ({ navigation }) => {
         navigation.navigate('Send');
     };
     return (
+      <ScrollView>
       <SafeAreaView
             style={{
                 flex: 1,
@@ -140,13 +141,13 @@ const FindDetail = ({ navigation }) => {
             <Description>멀리 떨어져 있음</Description>
               <Tags/>
           </Container>
-          <View style={{width: '90%', alignItems: 'center'}}>
+          <View style={{width: '90%',height: 350, alignItems: 'center'}}>
             <Line/>
             <Subtitle text="자기소개" bold="true" />
             <Item onPress={_handleItemPress} />
           </View>
         </SafeAreaView>
-        
+        </ScrollView>
     );
 };
 

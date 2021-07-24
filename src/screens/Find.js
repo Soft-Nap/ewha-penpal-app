@@ -1,10 +1,11 @@
 import React from 'react';
 import {View, Button, Pressable, ImageBackground, Image} from 'react-native';
 import styled from 'styled-components/native';
-import { Entypo } from '@expo/vector-icons';
+import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 import Tag from '../components/Tag';
 import Swiper from 'react-native-swiper';
+import constants from '../utils/constants';
 
 const Container = styled.View`
     flex: 1;
@@ -14,14 +15,14 @@ const Container = styled.View`
 {/*화면 위 여백*/}
 const FindHeader = styled.View`
     background-color:  ${colors.white};
-    height: 200px;
+    height: ${constants.height/15}px;
     align-items: center;
 `;
 
 {/*추천 친구 공간*/}
 const FindContents = styled.View`
     background-color:  ${colors.white};
-    height: 360px;
+    height: 325px;
     align-items: center;
 `;
 
@@ -52,11 +53,13 @@ const Friend = styled.View`
 
 const FindFooter = styled.View`
 background-color:  ${colors.white};
-height: 200px;
-width: 275px
+height: ${constants.height/10}px;
+width: 275px;
 align-items: center;
+justify-content: center;
 flex-direction: row;
 `;
+
 {/*
 const Profile = styled.Image`
     width: 100px;
@@ -135,7 +138,10 @@ const Find = ({ navigation }) => {
             <FindHeader/>
             <FindContents>
                 <Swiper 
-                width = {400}
+                width = {385}
+                height = {constants.height/2}
+                dotColor = {colors.pink}
+                activeDotColor = {colors.green}
                 showsButtons = {true} 
                 showsPagination={true}
                 style = {{ padding: 50 }}
@@ -148,23 +154,28 @@ const Find = ({ navigation }) => {
                 </Swiper> 
             </FindContents>
             <FindFooter>
-                {/*왼쪽 넘기기 버튼*/}
+                {/*왼쪽 넘기기 버튼
                 <Entypo name="chevron-with-circle-left" 
                     size={24} 
                     color="black"
                     style={{ marginRight: 50}}
                     onPress={() => {}}/>
+                */}
                 {/*메일 보내기 버튼*/}
-                <Entypo name="mail"
-                    size={24}
-                    style={{ marginRight: 50, marginLeft: 50  }}
-                    onPress={() => navigation.navigate('Send')} />
-                {/*오른쪽 넘기기 버튼*/}
+                <MaterialIcons name="mail"
+                    size={45}
+                    color= {colors.green}
+                    style={{ marginRight: 50, marginLeft: 50, backgroundColor: colors.beige, 
+                        borderRadius: 22, borderWidth: 1,  }}
+                    onPress={() => navigation.navigate('Send')} 
+                />
+                {/*오른쪽 넘기기 버튼
                 <Entypo name="chevron-with-circle-right" 
                     size={24} 
                     color="black" 
                     style={{ marginLeft: 50 }}
                     onPress={() => {}}/>
+                */}
             </FindFooter>
         </Container>
     );

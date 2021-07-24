@@ -6,7 +6,7 @@ import Color from '../components/Color';
 import {colors, White, Pink,Beige} from '../Theme';
 import StampModal from '../components/StampModal';
 import Profile from '../components/Profile';
-
+import constants from '../utils/constants';
 
 const Container = styled.View`
     flex: 1;
@@ -17,8 +17,8 @@ const Container = styled.View`
 const Pad = styled.View`
     flex-direction: column;
     align-items: center;
-    height: 600px;
-    width: 345px;
+    height: ${constants.height*3/4}px;
+    width: ${constants.width*3/4}px;
     background-color: ${props => props.theme.value};
     border-width: 1px;
     border-color: ${colors.black};
@@ -30,21 +30,21 @@ const MailHeader = styled.View`
 
     flex-direction: row;
     height: 80px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailContents = styled.View`
     flex-direction: column;
-    height: 450px;
-    width: 345px;
+    height: ${constants.height/2}px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
     height: 30px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
@@ -52,7 +52,7 @@ const HeaderText = styled.View`
     flex: 1;
     flex-direction: column;
     height: 60px;
-    width: 300px;
+    width: ${constants.width*3/4}px;
     margin-left: 5px;
 `;
 
@@ -82,8 +82,8 @@ const Input = styled.TextInput`
 const ColorSelectArea = styled.View`
     flex-direction: row;
     height: 80px;
-    width: 345px;
-    padding: 20px 0px;
+    width: ${constants.width*3/4}px;
+    padding: 0px 0px;
 `;
 
 const Item = () => {
@@ -133,6 +133,7 @@ const Send = ({ navigation }) => {
             style={{ marginRight: 11 }}
             onPress={() => navigation.navigate('SendCheck')} />
           ),
+          
           headerLeft: () => (
             <MaterialIcons name="close"
             size={30}

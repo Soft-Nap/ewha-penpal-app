@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Find from '../screens/Find';
 import FindDetail from '../screens/FindDetail';
@@ -6,10 +6,19 @@ import Send from '../screens/Send';
 import SendCheck from '../screens/SendCheck';
 import { Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
 
-const FindStack = () => {
+const FindStack = ({navigation, route}) => {
+    useLayoutEffect(() => {
+        const routeName = getFocusedRouteNameFromRoute(route);
+        if (routeName === "Find") {
+          navigation.setOptions({ tabBarVisible: true });
+        } else {
+          navigation.setOptions({ tabBarVisible: false });
+        }
+      }, [navigation, route]);
     return (
         <Stack.Navigator
             initialRouteName = "Find"

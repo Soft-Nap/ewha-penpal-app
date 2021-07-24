@@ -15,8 +15,8 @@ const Stamp = (props) => {
       source= {Images.Stamp.uri}>
         <Image
       style={{
-        width: 50,
-        height: 50,
+        width: 51,
+        height: 51,
         borderWidth: 1,
         borderColor: colors.black,
         backgroundColor: colors.green,
