@@ -115,18 +115,6 @@ const Item = () => {
 };
 
 const HomeMail = ({ navigation }) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerLeft: () => (
-        <MaterialIcons
-          name="send"
-          size={30}
-          style={{ marginRight: 11 }}
-          onPress={() => navigation.navigate("HomeSending")}
-        />
-      ),
-    });
-  }, []);
   return (
     <Container>
       <Item />
