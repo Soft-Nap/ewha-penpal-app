@@ -1,6 +1,6 @@
 import React, { useContext, useLayoutEffect, useState } from 'react';
 import styled, {ThemeProvider} from 'styled-components/native';
-import { Modal, Pressable, Alert} from 'react-native';
+import { Modal, Pressable, Alert, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Color from '../components/Color';
 import {colors, White, Pink,Beige} from '../Theme';
@@ -128,10 +128,19 @@ const Send = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-            <MaterialIcons name="send"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('SendCheck')} />
+                <View style={{flexDirection: "row" }}>
+                    <MaterialIcons name="inbox"
+                    size={30}
+                    style={{ marginRight: 11 }}
+                    onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
+                    [{text: "예", onPress: () => navigation.popToTop()},
+                    {text: "취소", onPress: () => {}},]
+                    )} />
+                    <MaterialIcons name="send"
+                    size={30}
+                    style={{ marginRight: 11 }}
+                    onPress={() => navigation.navigate('SendCheck')} />
+                </View>
           ),
           
           headerLeft: () => (
@@ -140,8 +149,8 @@ const Send = ({ navigation }) => {
             style={{ marginRight: 11 }}
             onPress={() => Alert.alert("경고", "저장하지 않고 나갈경우 모두 지워질 수 있습니다.\n저장하시겠습니까?", 
             [{text: "취소", onPress: () => console.log("실행취소")},
-            {text: "예", onPress: () => console.log("저장")},
-            {text: "아니오", onPress: () => console.log("저장안함")},]
+            {text: "예", onPress: () => {console.log("저장"), navigation.popToTop()}},
+            {text: "아니오", onPress: () => {console.log("저장안함"), navigation.popToTop()}},]
           )} />
           ),
         });

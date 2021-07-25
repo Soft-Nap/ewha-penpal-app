@@ -17,10 +17,10 @@ const ListStack = ({navigation, route}) => {
     
     useLayoutEffect(() => {
         const routeName = getFocusedRouteNameFromRoute(route);
-        if (routeName === "List") {
-          navigation.setOptions({ tabBarVisible: true });
-        } else {
+        if (routeName === "Item" || routeName === "Mail" || routeName === "Temp" || routeName === "Send" || routeName === "SendCheck") {
           navigation.setOptions({ tabBarVisible: false });
+        } else {
+          navigation.setOptions({ tabBarVisible: true });
         }
       }, [navigation, route]);
 

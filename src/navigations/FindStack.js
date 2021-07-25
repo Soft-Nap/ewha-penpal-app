@@ -13,12 +13,13 @@ const Stack = createStackNavigator();
 const FindStack = ({navigation, route}) => {
     useLayoutEffect(() => {
         const routeName = getFocusedRouteNameFromRoute(route);
-        if (routeName === "Find") {
-          navigation.setOptions({ tabBarVisible: true });
-        } else {
+        if (routeName === "FindDetail" || routeName === "Send" || routeName === "SendCheck") {
           navigation.setOptions({ tabBarVisible: false });
+        } else {
+          navigation.setOptions({ tabBarVisible: true });
         }
       }, [navigation, route]);
+
     return (
         <Stack.Navigator
             initialRouteName = "Find"
