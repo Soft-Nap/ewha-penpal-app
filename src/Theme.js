@@ -16,3 +16,8 @@ export const colors = {
     yellow: '#E0C389',
     red: '#FF8484',
 };
+
+export const theme = {
+    spinnerBackground: colors.black,
+    spinnerIndicator: colors.white,
+}

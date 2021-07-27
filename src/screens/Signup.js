@@ -13,6 +13,8 @@ import SignupInput from "../components/SignupInput";
 import SignupButton from "../components/SignupButton";
 import { colors, fontSizes } from "../Theme";
 import { removeWhitespace, validateEmail } from "../utils/common";
+import { Alert } from "react-native";
+import { signup } from "../utils/firebase";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -45,7 +47,15 @@ const Signup = () => {
     );
   }, [email, password, passwordConfirm, errorMessage, selected]);
 
-  const _handleSignupButtonPress = () => {};
+  const _handleSignupButtonPress = async() => {
+    try {
+      const user = await signup({ email, password });
+      console.log(user);
+      Alert.alert('Signup Success', user.email);
+    } catch (e) {
+      Alert.alert('Signup error', e.message);
+    }
+  };
 
   return (
     <KeyboardAwareScrollView

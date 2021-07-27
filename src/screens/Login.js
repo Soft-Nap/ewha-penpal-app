@@ -1,10 +1,13 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { SafeAreaView, Text, Image, View } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Input from "../components/Input";
 import LoginButton from "../components/LoginButton";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { validateEmail, removeWhitespace } from "../utils/common";
+import { Alert } from "react-native";
+import { login } from "../utils/firebase";
+import { ProgressContext } from "../contexts";
 
 const Login = ({ navigation }) => {
   // 처음 배우는 리액트 네이티브 책과 유사하게 작성됨
@@ -13,6 +16,7 @@ const Login = ({ navigation }) => {
   const passwordRef = useRef();
   const [errorMessage, setErrorMessage] = useState("");
   const [disabled, setDisabled] = useState(true);
+  const { spinner } = useContext(ProgressContext);
 
   useEffect(() => {
     setDisabled(!(email && password && !errorMessage));
@@ -32,7 +36,17 @@ const Login = ({ navigation }) => {
     setPassword(removeWhitespace(password));
   };
 
-  const _handleLoginButtonPress = () => {};
+  const _handleLoginButtonPress = async() => {
+    try {
+      spinner.start();
+      const user = await login({email, password});
+      Alert.alert('Login Success', user.email);
+    } catch (e) {
+      Alert.alert('Login Error', e.message);
+    } finally {
+      spinner.stop();
+    }
+  };
 
   return (
     <KeyboardAwareScrollView
