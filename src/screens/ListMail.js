@@ -2,20 +2,25 @@ import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
 import { ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import {colors} from '../Theme';
+import {Images} from '../images/Images';
+import Stamp from '../components/Stamp';
+import constants from '../utils/constants';
 
 const Container = styled.View`
     flex: 1;
-    background-color: #ffffff;
+    background-color: ${colors.white};
     align-items: center;
 `;
 
 const Pad = styled.View`
     flex-direction: column;
     align-items: center;
-    height: 600px;
-    width: 345px;
+    height: ${constants.height*3/4}px;
+    width: ${constants.width*3/4}px;
+    background-color: ${colors.beige};
     border-width: 1px;
-    border-color: #000000;
+    border-color: ${colors.black};
     border-radius: 20px;
     padding: 20px 20px;
 `;
@@ -24,21 +29,21 @@ const MailHeader = styled.View`
 
     flex-direction: row;
     height: 80px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailContents = styled.View`
     flex-direction: column;
     height: 480px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
     height: 30px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
@@ -46,32 +51,32 @@ const HeaderText = styled.View`
 flex: 1;
 flex-direction: column;
 height: 60px;
-width: 300px;
+width: ${constants.width*3/4}px;
 `;
 
 const Person = styled.Text`
     font-size: 16px;
-    font-weight: 600;
 `;
 
 const Contents = styled.Text`
     font-size: 14px;
     margin-top: 5px;
-    color: #000000;
+    color: ${colors.black};
 `;
 
 const Time = styled.Text`
     font-size: 12px;
-    color: #000000;
+    color: ${colors.black};
 `;
-
+{/*
 const Stamp = styled.Image`
     width: 60px;
     height: 60px;
     border-width: 1px;
-    border-color: #000000;
-    background-color: #b1b1b1;
+    border-color: ${colors.black};
+    background-color: ${colors.green};
 `;
+*/}
 
 const channels = [];
 for (let idx = 0; idx < 5; idx++)
@@ -88,26 +93,26 @@ const Item = () => {
     const theme = useContext(ThemeContext);
 
     return (
-        <Pad>
+           <Pad>
             <MailHeader>
                 <HeaderText>
                     <Person>To.받는 사람</Person>
                     <Time>보낸 시간</Time>
                 </HeaderText>
-                <Stamp/>
+                <Stamp imageUri = {Images.logo.uri}/>
             </MailHeader>
             <ScrollView showsVerticalScrollIndicator = {false}> 
               <MailContents>
                     <Contents>  
-                        저 월욜에 깃허브에 올리다가 지금까지 했던 거 싹 다 날렸어요ㅠㅠ
+                        편지 내용
                     </Contents>
             </MailContents>  
             </ScrollView>
-            
             <MailFooter>
                 <Person>From.보내는 사람</Person>
             </MailFooter>
-        </Pad>
+        </Pad> 
+        
     );
 };
 
@@ -119,7 +124,7 @@ const Mail = ({ navigation, route: { params }}) => {
             <MaterialIcons name="send"
             size={30}
             style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('List')} />
+            onPress={() => navigation.navigate('Send')} />
           ),
         });
       }, []);

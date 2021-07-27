@@ -7,7 +7,9 @@ import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view
 import { validateEmail, removeWhitespace } from "../utils/common";
 import { Alert } from "react-native";
 import { login } from "../utils/firebase";
+
 import { ProgressContext } from "../contexts";
+
 
 const Login = ({ navigation }) => {
   // 처음 배우는 리액트 네이티브 책과 유사하게 작성됨

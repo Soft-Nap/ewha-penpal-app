@@ -8,6 +8,7 @@ export const fontSizes = {
 };
 
 export const colors = {
+    black: '#000000',
     white: '#FFFFFF',
     beige: '#F4EFEC',
     pink: '#F0D9D1',
@@ -17,7 +18,17 @@ export const colors = {
     red: '#FF8484',
 };
 
-export const theme = {
-    spinnerBackground: colors.black,
-    spinnerIndicator: colors.white,
-}
+
+{/*편지지 색을 위한 것입니다.*/}
+export const White = {
+    value: '#FFFFFF',
+};
+
+export const Pink = {
+    value: '#F0D9D1',
+};
+
+export const Beige = {
+    value: '#F4EFEC',
+};
+

@@ -1,10 +1,7 @@
 import React, {useLayoutEffect} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { colors } from '../Theme';
-import List from '../screens/List';
-import Item from '../screens/ListItem';
-import Mail from '../screens/ListMail';
-import Temp from '../screens/ListTemp';
+import Find from '../screens/Find';
+import FindDetail from '../screens/FindDetail';
 import Send from '../screens/Send';
 import SendCheck from '../screens/SendCheck';
 import { Platform } from 'react-native';
@@ -12,12 +9,11 @@ import { FontAwesome } from '@expo/vector-icons';
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
- 
-const ListStack = ({navigation, route}) => {
-    
+
+const FindStack = ({navigation, route}) => {
     useLayoutEffect(() => {
         const routeName = getFocusedRouteNameFromRoute(route);
-        if (routeName === "Item" || routeName === "Mail" || routeName === "Temp" || routeName === "Send" || routeName === "SendCheck") {
+        if (routeName === "FindDetail" || routeName === "Send" || routeName === "SendCheck") {
           navigation.setOptions({ tabBarVisible: false });
         } else {
           navigation.setOptions({ tabBarVisible: true });
@@ -26,11 +22,11 @@ const ListStack = ({navigation, route}) => {
 
     return (
         <Stack.Navigator
-            initialRouteName = "List"
+            initialRouteName = "Find"
             screenOptions={{
                 cardStyle: {backgroundColor: '#ffffff'},
                 headerStyle: {
-               backgroundColor: '#ffffff',
+                    backgroundColor: '#ffffff',
                     shadowColor: 'transparent',
                 },
                 headerBackTitleVisible: false,
@@ -47,39 +43,28 @@ const ListStack = ({navigation, route}) => {
             }}
         >
             <Stack.Screen 
-                name="List" 
-                component={List} 
-                options={{ headerTitle: '편지 목록' }}
+                name="Find" 
+                component={Find} 
+                options={{ headerTitle: '친구 찾기' }}
             />
             <Stack.Screen 
-                name="Item" 
-                component={Item}  
-                options={{ headerTitle: '주고받은 편지 목록' }}
+                name="FindDetail" 
+                component={FindDetail}  
+                options={{ headerTitle: '프로필' }}
                 
-            />
-            <Stack.Screen 
-                name="Mail" 
-                component={Mail} 
-                options={{ headerTitle: '편지' }}
-            />
-            <Stack.Screen 
-                name="Temp" 
-                component={Temp} 
-                options={{ headerTitle: '임시 저장함' }}
             />
             <Stack.Screen 
                 name="Send" 
                 component={Send} 
-                options={{ headerTitle: '편지 발송' }}
+                options={{ headerTitle: '편지 작성' }}
             />
             <Stack.Screen 
                 name="SendCheck" 
                 component={SendCheck} 
-                options={{ headerTitle: '편지 발송 완료!', headerBackTitleVisible: false }}
+                options={{ headerTitle: '편지 발송 완료!' }}
             />
-            
         </Stack.Navigator>
     );
 };
 
-export default ListStack;
+export default FindStack;

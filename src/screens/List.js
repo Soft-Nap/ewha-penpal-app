@@ -1,18 +1,20 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import {colors} from '../Theme';
+import Profile from '../components/Profile';
 
 const Container = styled.View`
     flex: 1;
-    background-color: #ffffff;
+    background-color: ${colors.white};
 `;
 
 const ItemContainer = styled.Pressable`
     flex-direction: row;
     align-items: center;
     border-bottom-width: 1px;
-    border-color: #b1b1b1;
+    border-color: ${colors.grey};
     padding: 15px 20px;
 `;
 
@@ -30,25 +32,27 @@ const ItemTitle = styled.Text`
 const ItemDescription = styled.Text`
     font-size: 14px;
     margin-top: 5px;
-    color: #000000;
+    color: ${colors.black};
 `;
 
 const ItemTime = styled.Text`
     font-size: 12px;
-    color: #000000;
+    color: ${colors.black};
 `;
 
+{/*
 const Profile = styled.Image`
     width: 60px;
     height: 60px;
     border-radius: 30px;
     border-width: 1px;
-    border-color: #000000;
-    background-color: #b1b1b1;
+    border-color: ${colors.black};
+    background-color: ${colors.grey};
 `;
+*/}
 
 const channels = [];
-for (let idx = 0; idx < 5; idx++)
+for (let idx = 0; idx < 10; idx++)
 {
     channels.push({
         id: idx,
@@ -63,7 +67,7 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
 
     return (
         <ItemContainer onPress={() => onPress({ id, title })} >
-            <Profile/>
+            <Profile size = {60}/>
             <ItemTextContainer>
                 <ItemTitle>{title}</ItemTitle>
                 <ItemDescription>{description}</ItemDescription>
