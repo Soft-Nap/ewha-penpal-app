@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import { SafeAreaView, ScrollView } from "react-native";
 import { colors } from "../Theme";
 import LetterCard from "../components/LetterCard";
 
 const HomeSending = ({ navigation }) => {
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      gestureEnabled: true,
+    });
+  }, [navigation]);
+
   return (
     <SafeAreaView
       style={{
