@@ -75,7 +75,8 @@ const MorePassword = () => {
             ref={passwordConfirmRef}
             value={passwordConfirm}
             onChangeText={(text) => setPasswordConfirm(removeWhitespace(text))}
-            onSubmitEditing={() => passwordConfAgain.current.focus()}
+            /*새 비밀번호에서 다음버튼 누를 때 오류 해결*/
+            onSubmitEditing={() => passwordConfAgainRef.current.focus()}
             returnKeyType="next"
             isPassword
           />
@@ -90,6 +91,8 @@ const MorePassword = () => {
             onChangeText={(text) =>
               setPasswordConfAgain(removeWhitespace(text))
             }
+            /*onSubmitEditing 경고 메시지 해결*/
+            onSubmitEditing={() => {}}
             returnKeyType="done"
             isPassword
           />

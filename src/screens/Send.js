@@ -1,12 +1,12 @@
 import React, { useContext, useLayoutEffect, useState } from 'react';
 import styled, {ThemeProvider} from 'styled-components/native';
-import { Modal, Pressable, Alert} from 'react-native';
+import { Modal, Pressable, Alert, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Color from '../components/Color';
 import {colors, White, Pink,Beige} from '../Theme';
 import StampModal from '../components/StampModal';
 import Profile from '../components/Profile';
-
+import constants from '../utils/constants';
 
 const Container = styled.View`
     flex: 1;
@@ -17,8 +17,8 @@ const Container = styled.View`
 const Pad = styled.View`
     flex-direction: column;
     align-items: center;
-    height: 600px;
-    width: 345px;
+    height: ${constants.height*3/4}px;
+    width: ${constants.width*3/4}px;
     background-color: ${props => props.theme.value};
     border-width: 1px;
     border-color: ${colors.black};
@@ -30,21 +30,21 @@ const MailHeader = styled.View`
 
     flex-direction: row;
     height: 80px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailContents = styled.View`
     flex-direction: column;
-    height: 450px;
-    width: 345px;
+    height: ${constants.height/2}px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
     height: 30px;
-    width: 345px;
+    width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
@@ -52,7 +52,7 @@ const HeaderText = styled.View`
     flex: 1;
     flex-direction: column;
     height: 60px;
-    width: 300px;
+    width: ${constants.width*3/4}px;
     margin-left: 5px;
 `;
 
@@ -82,8 +82,8 @@ const Input = styled.TextInput`
 const ColorSelectArea = styled.View`
     flex-direction: row;
     height: 80px;
-    width: 345px;
-    padding: 20px 0px;
+    width: ${constants.width*3/4}px;
+    padding: 0px 0px;
 `;
 
 const Item = () => {
@@ -128,19 +128,29 @@ const Send = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
             headerRight: () => (
-            <MaterialIcons name="send"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('SendCheck')} />
+                <View style={{flexDirection: "row" }}>
+                    <MaterialIcons name="inbox"
+                    size={30}
+                    style={{ marginRight: 11 }}
+                    onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
+                    [{text: "예", onPress: () => navigation.popToTop()},
+                    {text: "취소", onPress: () => {}},]
+                    )} />
+                    <MaterialIcons name="send"
+                    size={30}
+                    style={{ marginRight: 11 }}
+                    onPress={() => navigation.navigate('SendCheck')} />
+                </View>
           ),
+          
           headerLeft: () => (
             <MaterialIcons name="close"
             size={30}
             style={{ marginRight: 11 }}
             onPress={() => Alert.alert("경고", "저장하지 않고 나갈경우 모두 지워질 수 있습니다.\n저장하시겠습니까?", 
             [{text: "취소", onPress: () => console.log("실행취소")},
-            {text: "예", onPress: () => console.log("저장")},
-            {text: "아니오", onPress: () => console.log("저장안함")},]
+            {text: "예", onPress: () => {console.log("저장"), navigation.popToTop()}},
+            {text: "아니오", onPress: () => {console.log("저장안함"), navigation.popToTop()}},]
           )} />
           ),
         });

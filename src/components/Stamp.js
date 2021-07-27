@@ -1,20 +1,31 @@
 import React from "react";
-import { TouchableOpacity, Image } from "react-native";
+import {Image, ImageBackground, Pressable } from "react-native";
 import { colors } from "../Theme";
+import {Images} from '../images/Images';
 
 const Stamp = (props) => {
   return (
-    <Image
+      <ImageBackground
+      style = {{
+        width: 60,
+        height: 60,
+        padding: 4.5,
+        marginRight: 5,
+      }}
+      source= {Images.Stamp.uri}>
+        <Image
       style={{
-        width: 50,
-        height: 50,
+        width: 51,
+        height: 51,
         borderWidth: 1,
         borderColor: colors.black,
-        marginRight: 5,
         backgroundColor: colors.green,
       }}
       source={props.imageUri}
-    />
+      />
+      </ImageBackground>
+      
+    
   );
 };
 

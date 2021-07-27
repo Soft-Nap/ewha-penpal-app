@@ -3,6 +3,9 @@
 const Images = {
     logo: {
       uri: require('../images/loginLogo.jpg')
+    },
+    Stamp: {
+      uri: require('../images/Stamp.png')
     }
 }
   export { Images }; 

@@ -70,7 +70,7 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
 const Temp = ({ navigation }) => {
     
     const _handleItemPress = params => {
-        navigation.navigate('Mail', params);
+        navigation.navigate('Send', params);
     };
 
     return (

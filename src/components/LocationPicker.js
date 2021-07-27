@@ -8,6 +8,7 @@ const LocationPicker = () => {
   return (
     <RNPickerSelect
       onValueChange={(value) => console.log(value)}
+      fixAndroidTouchableBug = {true}
       items={[
         { label: "Football", value: "football" },
         { label: "Baseball", value: "baseball" },

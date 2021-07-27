@@ -1,17 +1,20 @@
 import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, SafeAreaView, Alert, View } from 'react-native';
+import { ScrollView, SafeAreaView, Alert, View, ImageBackground } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Line from '../components/Line';
 import Subtitle from '../components/Subtitle';
 import {colors} from '../Theme';
 import Profile from '../components/Profile';
 import {Images} from '../images/Images';
+import Tag from '../components/Tag';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
+import constants from '../utils/constants';
 
 const Container = styled.View`
-    height: 400px;
     background-color: ${colors.white};
     align-items: center;
+    justify-content: center;
 `;
 {/*
 const Profile = styled.Image`
@@ -36,12 +39,13 @@ const Description = styled.Text`
 `;
 
 const TagArea = styled.View`
+    align-items: center;
     background-color: ${colors.white};
     height: 45px;
     width: 250px;
     flex-direction: row;
 `;
-
+{/*
 const Tag = styled.View`
   align-items: center;
   height: 40px;
@@ -52,6 +56,7 @@ const Tag = styled.View`
   border-radius: 20px;
   margin-right: 5px;
 `;
+*/}
 {/*긴 자기소개*/}
 const Introduce = styled.View`
     flex-direction: column;
@@ -69,10 +74,23 @@ const Item = ({ onPress }) => {
 
     return (
            <Introduce>
-            <MaterialIcons name="send"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => onPress()} />
+             <Description>자기소개입니다</Description>
+             <ImageBackground
+             style = {{
+              width: 60,
+              height: 60,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: colors.green,
+              borderRadius: 30,
+              borderWidth: 1,
+              position: 'absolute',top: 170, left: 270,zIndex: 1,
+            }}>
+               <MaterialIcons name="send"
+                size={40}
+                onPress={() => onPress()}
+                color={colors.white} />
+             </ImageBackground>
            </Introduce> 
         
     );
@@ -82,7 +100,7 @@ const Tags = () => {
   return (
       <TagArea>
         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-          <Tag/><Tag/><Tag/><Tag/>
+          <Tag text = "태그1"/><Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
         </ScrollView>
       </TagArea>
   );
@@ -109,6 +127,7 @@ const FindDetail = ({ navigation }) => {
         navigation.navigate('Send');
     };
     return (
+      <ScrollView>
       <SafeAreaView
             style={{
                 flex: 1,
@@ -122,13 +141,13 @@ const FindDetail = ({ navigation }) => {
             <Description>멀리 떨어져 있음</Description>
               <Tags/>
           </Container>
-          <View style={{width: '90%', alignItems: 'center'}}>
+          <View style={{width: '90%',height: 350, alignItems: 'center'}}>
             <Line/>
             <Subtitle text="자기소개" bold="true" />
             <Item onPress={_handleItemPress} />
           </View>
         </SafeAreaView>
-        
+        </ScrollView>
     );
 };
 

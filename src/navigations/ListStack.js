@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { colors } from '../Theme';
 import List from '../screens/List';
@@ -9,17 +9,28 @@ import Send from '../screens/Send';
 import SendCheck from '../screens/SendCheck';
 import { Platform } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
+import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
 const Stack = createStackNavigator();
+ 
+const ListStack = ({navigation, route}) => {
+    
+    useLayoutEffect(() => {
+        const routeName = getFocusedRouteNameFromRoute(route);
+        if (routeName === "Item" || routeName === "Mail" || routeName === "Temp" || routeName === "Send" || routeName === "SendCheck") {
+          navigation.setOptions({ tabBarVisible: false });
+        } else {
+          navigation.setOptions({ tabBarVisible: true });
+        }
+      }, [navigation, route]);
 
-const ListStack = () => {
     return (
         <Stack.Navigator
             initialRouteName = "List"
             screenOptions={{
                 cardStyle: {backgroundColor: '#ffffff'},
                 headerStyle: {
-                    backgroundColor: '#ffffff',
+               backgroundColor: '#ffffff',
                     shadowColor: 'transparent',
                 },
                 headerBackTitleVisible: false,

@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import {colors} from '../Theme';
 import Stamp from '../components/Stamp';
 import {Images} from '../images/Images';
+import constants from '../utils/constants';
 
 {/*
 const Stamp = styled.Image`
@@ -24,6 +25,13 @@ class ModalStamp extends Component {
     this.setState({ modalVisible: visible });
   }
 
+  constructor() {
+    super();
+    this.state = {
+      img: Images.logo.uri,
+    };
+  }
+
   render() {
     const { modalVisible } = this.state;
     return (
@@ -41,17 +49,29 @@ class ModalStamp extends Component {
                     <Text style={styles.modalText}>나의 우표 보관함</Text>
                     <View style={styles.stampView}>
                         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-                          <Stamp/><Stamp/><Stamp/><Stamp/><Stamp/>
+                          <Pressable onPress={this.changeImage1}>
+                            <Stamp/>
+                          </Pressable>
+                          <Pressable onPress={this.changeImage2}>
+                            <Stamp/>
+                          </Pressable>
+                          <Stamp/><Stamp/><Stamp/>
                         </ScrollView>
                     </View>
                 </View>
             </TouchableOpacity>
         </Modal>
         <Pressable onPress={() => {this.setModalVisible(true);}}>
-            <Stamp imageUri = {Images.logo.uri}/>
+            <Stamp imageUri = {this.state.img}/>
         </Pressable>
       </View>
     );
+  }
+  changeImage1 = () => {
+    this.setState({img:Images.Stamp.uri});
+  }
+  changeImage2 = () => {
+    this.setState({img:Images.logo.uri});
   }
 }
 
@@ -59,19 +79,20 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
+    alignItems: "center"
   },
   modalView: {
-    margin: 50,
+    marginTop: constants.height*2/3,
     backgroundColor: colors.beige,
     padding: 50,
     alignItems: "center",
-    width: 375,
+    width: constants.width,
+    height: constants.height/3,
     borderTopWidth: 1,
   },
   stampView: {
       flexDirection: "row",
+      justifyContent: "center",
   },
   textStyle: {
     color: "white",

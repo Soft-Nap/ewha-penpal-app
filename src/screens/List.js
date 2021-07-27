@@ -1,6 +1,6 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 import Profile from '../components/Profile';
@@ -52,7 +52,7 @@ const Profile = styled.Image`
 */}
 
 const channels = [];
-for (let idx = 0; idx < 5; idx++)
+for (let idx = 0; idx < 10; idx++)
 {
     channels.push({
         id: idx,

@@ -4,6 +4,9 @@ import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
+import Profile from "../components/Profile";
+import {Images} from '../images/Images';
+
 
 const MoreEditProfile = () => {
   return (
@@ -17,6 +20,7 @@ const MoreEditProfile = () => {
       {/* 유저 프로필 및 위치 */}
       <View>
         {/* 프로필 사진 추가 필요 */}
+        <Profile size = {180} imageUri = {Images.logo.uri}/>
         <LocationPicker />
       </View>
 
