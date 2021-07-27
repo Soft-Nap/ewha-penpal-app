@@ -13,7 +13,19 @@ const MoreDelAccount = () => {
         alignItems: "center",
       }}
     >
-      <View style={{ width: "90%", marginTop: 50 }}>
+      <View
+        style={{
+          width: "90%",
+          height: "75%",
+          marginTop: 50,
+          padding: 20,
+          paddingTop: 30,
+          backgroundColor: colors.beige,
+          borderWidth: 1,
+          borderColor: colors.black,
+          borderRadius: 15,
+        }}
+      >
         <Text
           style={{
             fontSize: fontSizes.xlarge,

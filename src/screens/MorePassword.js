@@ -21,7 +21,9 @@ const MorePassword = () => {
 
   useEffect(() => {
     let _errorMessage = "";
-    if (password !== "user password") {
+    if (password === "" && passwordConfirm === "" && passwordConfAgain === "") {
+      _errorMessage = "";
+    } else if (password !== "user password") {
       // 수정 필요
       _errorMessage = "비밀번호를 정확히 입력해주세요.";
     } else if (passwordConfirm !== passwordConfAgain) {
@@ -40,7 +42,7 @@ const MorePassword = () => {
     );
   }, [password, passwordConfirm && passwordConfAgain && errorMessage]);
 
-  const _handleSignupButtonPress = () => {};
+  const _handleChangeButtonPress = () => {};
 
   return (
     <KeyboardAwareScrollView
@@ -91,8 +93,7 @@ const MorePassword = () => {
             onChangeText={(text) =>
               setPasswordConfAgain(removeWhitespace(text))
             }
-            /*onSubmitEditing 경고 메시지 해결*/
-            onSubmitEditing={() => {}}
+            onSubmitEditing={_handleChangeButtonPress}
             returnKeyType="done"
             isPassword
           />
@@ -102,7 +103,7 @@ const MorePassword = () => {
         <View style={{ width: "90%", position: "absolute", bottom: 50 }}>
           <SignupButton
             title="변경하기"
-            onPress={_handleSignupButtonPress}
+            onPress={_handleChangeButtonPress}
             disabled={disabled}
           />
           <Text

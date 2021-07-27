@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import { SafeAreaView, ScrollView } from "react-native";
 import { colors } from "../Theme";
 import LetterCard from "../components/LetterCard";
 
@@ -13,10 +13,24 @@ const HomeReceived = () => {
         justifyContent: "center",
       }}
     >
+      <ScrollView
+        style={{ marginTop: 20, padding: 50 }}
+        contentContainerStyle={{
+          flexGrow: 1,
+          justifyContent: "center",
+        }}
+      >
+        <LetterCard letterType="yellow" />
+        <LetterCard letterType="pink" />
+        <LetterCard letterType="pink" />
+        <LetterCard letterType="yellow" />
+        <LetterCard letterType="pink" />
+        <LetterCard letterType="pink" />
+        <LetterCard letterType="yellow" />
+        <LetterCard letterType="pink" />
+        <LetterCard letterType="pink" />
+      </ScrollView>
       {/* We need to add scrollview */}
-      <LetterCard letterType="yellow" />
-      <LetterCard letterType="pink" />
-      <LetterCard letterType="basic" />
     </SafeAreaView>
   );
 };
