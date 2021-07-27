@@ -3,7 +3,7 @@ import { colors, fontSizes } from "../Theme";
 import { View, TextInput, Text } from "react-native";
 import PropTypes from "prop-types";
 
-const Input = forwardRef(
+const SignupInput = forwardRef(
   (
     {
       label,
@@ -56,11 +56,11 @@ const Input = forwardRef(
   }
 );
 
-Input.defaultProps = {
+SignupInput.defaultProps = {
   onBlur: () => {},
 };
 
-Input.propTypes = {
+SignupInput.propTypes = {
   value: PropTypes.string.isRequired,
   onChangeText: PropTypes.func.isRequired,
   onSubmitEditing: PropTypes.func.isRequired,
@@ -71,4 +71,4 @@ Input.propTypes = {
   maxLength: PropTypes.number,
 };
 
-export default Input;
+export default SignupInput;
