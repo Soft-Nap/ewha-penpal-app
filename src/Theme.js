@@ -18,6 +18,7 @@ export const colors = {
     red: '#FF8484',
 };
 
+
 {/*편지지 색을 위한 것입니다.*/}
 export const White = {
     value: '#FFFFFF',
@@ -30,3 +31,4 @@ export const Pink = {
 export const Beige = {
     value: '#F4EFEC',
 };
+
