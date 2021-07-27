@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <AuthStack />
+      <TabNavigation />
       {/* user?.uid && user?.email ? <TabNavigation /> : <AuthStack /> */}
       {/* inProgress && <Spinner /> */}
     </NavigationContainer>

@@ -2,10 +2,12 @@ import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
 import { ScrollView } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
+import {colors} from '../Theme';
+import Stamp from '../components/Stamp';
 
 const Container = styled.View`
     flex: 1;
-    background-color: #ffffff;
+    background-color: ${colors.white};
     align-items: center;
 `;
 
@@ -14,8 +16,9 @@ const Pad = styled.View`
     align-items: center;
     height: 600px;
     width: 345px;
+    background-color: ${colors.beige};
     border-width: 1px;
-    border-color: #000000;
+    border-color: ${colors.black};
     border-radius: 20px;
     padding: 20px 20px;
 `;
@@ -57,21 +60,22 @@ const Person = styled.Text`
 const Contents = styled.Text`
     font-size: 14px;
     margin-top: 5px;
-    color: #000000;
+    color: ${colors.black};
 `;
 
 const Time = styled.Text`
     font-size: 12px;
-    color: #000000;
+    color: ${colors.black};
 `;
-
+{/*
 const Stamp = styled.Image`
     width: 60px;
     height: 60px;
     border-width: 1px;
-    border-color: #000000;
-    background-color: #b1b1b1;
+    border-color: ${colors.black};
+    background-color: ${colors.green};
 `;
+*/}
 
 const channels = [];
 for (let idx = 0; idx < 5; idx++)
@@ -88,7 +92,7 @@ const Item = () => {
     const theme = useContext(ThemeContext);
 
     return (
-        <Pad>
+           <Pad>
             <MailHeader>
                 <HeaderText>
                     <Person>To.받는 사람</Person>
@@ -98,16 +102,17 @@ const Item = () => {
             </MailHeader>
             <ScrollView showsVerticalScrollIndicator = {false}> 
               <MailContents>
+                  
                     <Contents>  
                         저 월욜에 깃허브에 올리다가 지금까지 했던 거 싹 다 날렸어요ㅠㅠ
                     </Contents>
             </MailContents>  
             </ScrollView>
-            
             <MailFooter>
                 <Person>From.보내는 사람</Person>
             </MailFooter>
-        </Pad>
+        </Pad> 
+        
     );
 };
 
@@ -119,7 +124,7 @@ const Mail = ({ navigation, route: { params }}) => {
             <MaterialIcons name="send"
             size={30}
             style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('List')} />
+            onPress={() => navigation.navigate('Send')} />
           ),
         });
       }, []);
