@@ -1,3 +1,4 @@
+{/*
 // import * as firebase from 'firebase';
 import config from '../../firebase.json';
 // This import loads the firebase namespace.
@@ -21,3 +22,4 @@ export const signup = async({email, password}) => {
 	const { user } = await Auth.createUserWithEmailAndPassword(email, password);
 	return user;
 };
+*/}
