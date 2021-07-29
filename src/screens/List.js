@@ -1,6 +1,6 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList} from 'react-native';
+import { FlatList, Alert } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 import Profile from '../components/Profile';
@@ -66,7 +66,11 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
     const theme = useContext(ThemeContext);
 
     return (
-        <ItemContainer onPress={() => onPress({ id, title })} >
+        <ItemContainer onPress={() => onPress({ id, title })}
+        onLongPress={() => Alert.alert("삭제", "해당 목록을 삭제하시겠습니까?", 
+        [{text: "예", onPress: () => {}},
+        {text: "취소", onPress: () => {}},]
+        )} >
             <Profile size = {60}/>
             <ItemTextContainer>
                 <ItemTitle>{title}</ItemTitle>

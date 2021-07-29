@@ -16,12 +16,20 @@ import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 const Stack = createStackNavigator();
 
 const MoreStack = ({ navigation, route }) => {
+  const extraScreens = [
+    "EditProfile",
+    "Password",
+    "Notice",
+    "NoticeDetail",
+    "DelAccount",
+  ];
+
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === "More") {
-      navigation.setOptions({ tabBarVisible: true });
-    } else {
+    if (extraScreens.includes(routeName)) {
       navigation.setOptions({ tabBarVisible: false });
+    } else {
+      navigation.setOptions({ tabBarVisible: true });
     }
   }, [navigation, route]);
 

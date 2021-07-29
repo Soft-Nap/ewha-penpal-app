@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import React, { useContext } from "react";
 import TabNavigation from "./navigations/Tab";
-import AuthStack from "./navigations/AuthStack";
+// import AuthStack from "./navigations/AuthStack";
 import { Spinner } from "./components";
 import { ProgressContext, ProgressProvider } from "./contexts";
 
@@ -18,7 +18,6 @@ const App = () => {
         {inProgress && <Spinner />}
       </NavigationContainer>
     </ProgressProvider>
-
   );
 };
 
