@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
@@ -9,7 +16,7 @@ import Profile from "../components/Profile";
 import { Images } from "../images/Images";
 import Dialog from "react-native-dialog";
 
-const MoreEditProfile = () => {
+const MoreEditProfile = ({ navigation }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
 
   return (
@@ -86,7 +93,13 @@ const MoreEditProfile = () => {
         <View style={{ width: "90%" }}>
           <Line />
           <Subtitle text="자기소개" />
-          <View style={{ minHeight: 235, marginBottom: 50 }}>
+          <TouchableOpacity
+            style={{ minHeight: 235, marginBottom: 50 }}
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate("EditIntro");
+            }}
+          >
             <View style={styles.boxBackground}>
               <View style={styles.boxBackgroundInside}>
                 <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
@@ -106,7 +119,7 @@ const MoreEditProfile = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
