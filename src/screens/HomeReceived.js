@@ -30,7 +30,6 @@ const HomeReceived = () => {
         <LetterCard letterType="pink" />
         <LetterCard letterType="pink" />
       </ScrollView>
-      {/* We need to add scrollview */}
     </SafeAreaView>
   );
 };

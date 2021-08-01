@@ -1,12 +1,5 @@
-import React from "react";
-import {
-  StyleSheet,
-  SafeAreaView,
-  View,
-  Text,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
@@ -14,8 +7,11 @@ import Subtitle from "../components/Subtitle";
 import DistancePicker from "../components/DistancePicker";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
+import DialogInput from "react-native-dialog-input";
 
 const MoreEditProfile = () => {
+  const [dialogVisible, setDialogVisible] = useState(false);
+
   return (
     <SafeAreaView
       style={{
@@ -32,6 +28,22 @@ const MoreEditProfile = () => {
         <View style={{ alignItems: "center" }}>
           <Profile size={180} imageUri={Images.logo.uri} />
           {/* 프로필 사진 추가 필요 */}
+          <DialogInput
+            isDialogVisible={dialogVisible}
+            title={"닉네임 변경"}
+            message={"변경할 닉네임을 입력해주세요."}
+            hintInput={"닉네임 입력"}
+            textInputProps={{ maxLength: 10 }}
+            dialogStyle={{ backgroundColor: colors.white }}
+            cancelText={"취소"}
+            submitText={"변경"}
+            submitInput={() => {
+              console.log("Submit");
+            }}
+            closeDialog={() => {
+              setDialogVisible(false);
+            }}
+          ></DialogInput>
           <Text
             style={{
               fontSize: fontSizes.xlarge,
@@ -41,7 +53,9 @@ const MoreEditProfile = () => {
               marginTop: 20,
               marginBottom: 8,
             }}
-            onPress={() => console.log("Edit Nickname")}
+            onPress={() => {
+              setDialogVisible(true);
+            }}
           >
             닉네임
           </Text>

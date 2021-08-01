@@ -22,7 +22,7 @@ const DistancePicker = () => {
         name="waves"
         size={18}
         color="black"
-        style={{ marginRight: 2 }}
+        style={{ marginRight: 4 }}
       />
       <TouchableOpacity
         activeOpacity={0.8}
@@ -37,9 +37,6 @@ const DistancePicker = () => {
         value={value}
         title={"선호하는 거리를 선택해주세요."}
         items={distance}
-        onCancel={() => {
-          console.log("Cancelled");
-        }}
         onValueChange={(value) => {
           setProv(value);
           setValue(value);

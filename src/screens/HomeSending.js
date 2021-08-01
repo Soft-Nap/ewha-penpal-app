@@ -35,7 +35,6 @@ const HomeSending = ({ navigation }) => {
           onPress={() => navigation.navigate("HomeMail")}
         />
       </ScrollView>
-      {/* We need to add scrollview */}
     </SafeAreaView>
   );
 };
