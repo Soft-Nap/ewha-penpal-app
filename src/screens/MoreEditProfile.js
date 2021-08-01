@@ -1,10 +1,19 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
 import DistancePicker from "../components/DistancePicker";
+import Profile from "../components/Profile";
+import { Images } from "../images/Images";
 
 const MoreEditProfile = () => {
   return (
@@ -16,11 +25,12 @@ const MoreEditProfile = () => {
       }}
     >
       <ScrollView
-        style={{ width: "100%" }}
+        style={{ width: "100%", paddingTop: 30 }}
         contentContainerStyle={{ alignItems: "center" }}
       >
         {/* 유저 프로필 및 위치 */}
         <View style={{ alignItems: "center" }}>
+          <Profile size={180} imageUri={Images.logo.uri} />
           {/* 프로필 사진 추가 필요 */}
           <Text
             style={{
@@ -28,8 +38,10 @@ const MoreEditProfile = () => {
               color: colors.black,
               fontWeight: "bold",
               textAlign: "center",
+              marginTop: 20,
               marginBottom: 8,
             }}
+            onPress={() => console.log("Edit Nickname")}
           >
             닉네임
           </Text>

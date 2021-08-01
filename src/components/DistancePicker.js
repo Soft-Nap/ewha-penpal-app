@@ -6,7 +6,7 @@ import { colors, fontSizes } from "../Theme";
 
 let index = 0;
 const distance = [
-  { label: "모두", value: "모두" },
+  { label: "멀리까지", value: "멀리까지" },
   { label: "조금 멀리까지", value: "조금 멀리까지" },
   { label: "가까이", value: "가까이" },
 ];
