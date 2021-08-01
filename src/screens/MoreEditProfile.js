@@ -7,7 +7,7 @@ import Subtitle from "../components/Subtitle";
 import DistancePicker from "../components/DistancePicker";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
-import DialogInput from "react-native-dialog-input";
+import Dialog from "react-native-dialog";
 
 const MoreEditProfile = () => {
   const [dialogVisible, setDialogVisible] = useState(false);
@@ -27,23 +27,31 @@ const MoreEditProfile = () => {
         {/* 유저 프로필 및 위치 */}
         <View style={{ alignItems: "center" }}>
           <Profile size={180} imageUri={Images.logo.uri} />
-          {/* 프로필 사진 추가 필요 */}
-          <DialogInput
-            isDialogVisible={dialogVisible}
-            title={"닉네임 변경"}
-            message={"변경할 닉네임을 입력해주세요."}
-            hintInput={"닉네임 입력"}
-            textInputProps={{ maxLength: 10 }}
-            dialogStyle={{ backgroundColor: colors.white }}
-            cancelText={"취소"}
-            submitText={"변경"}
-            submitInput={() => {
-              console.log("Submit");
-            }}
-            closeDialog={() => {
-              setDialogVisible(false);
-            }}
-          ></DialogInput>
+          {/* 닉네임 변경 Alert 창 */}
+          <Dialog.Container visible={dialogVisible}>
+            <Dialog.Title>닉네임 변경</Dialog.Title>
+            <Dialog.Description>
+              변경할 닉네임을 입력해주세요.
+            </Dialog.Description>
+            <Dialog.Input
+              wrapperStyle={{ backgroundColor: colors.white, opacity: 20 }}
+              maxLength={10}
+            />
+            <Dialog.Button
+              label="취소"
+              bold={true}
+              onPress={() => {
+                setDialogVisible(false);
+              }}
+            />
+            <Dialog.Button
+              label="변경"
+              onPress={() => {
+                console.log("닉네임 변경");
+                setDialogVisible(false);
+              }}
+            />
+          </Dialog.Container>
           <Text
             style={{
               fontSize: fontSizes.xlarge,
