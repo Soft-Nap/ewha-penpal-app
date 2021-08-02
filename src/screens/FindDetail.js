@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, SafeAreaView, Alert, View, ImageBackground } from 'react-native';
+import { ScrollView, SafeAreaView, Alert, View, ImageBackground, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Line from '../components/Line';
 import Subtitle from '../components/Subtitle';
@@ -8,8 +8,6 @@ import {colors} from '../Theme';
 import Profile from '../components/Profile';
 import {Images} from '../images/Images';
 import Tag from '../components/Tag';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import constants from '../utils/constants';
 
 const Container = styled.View`
     background-color: ${colors.white};
@@ -57,6 +55,7 @@ const Tag = styled.View`
   margin-right: 5px;
 `;
 */}
+
 {/*긴 자기소개*/}
 const Introduce = styled.View`
     flex-direction: column;
@@ -69,32 +68,16 @@ const Introduce = styled.View`
     border-radius: 20px;
     padding: 20px 20px;
 `;
-{/*자기소개 부분*/}
-const Item = ({ onPress }) => {
 
-    return (
-           <Introduce>
-             <Description>자기소개입니다</Description>
-             <ImageBackground
-             style = {{
-              width: 60,
-              height: 60,
-              alignItems: 'center',
-              justifyContent: 'center',
-              backgroundColor: colors.green,
-              borderRadius: 30,
-              borderWidth: 1,
-              position: 'absolute',top: 170, left: 270,zIndex: 1,
-            }}>
-               <MaterialIcons name="send"
-                size={40}
-                onPress={() => onPress()}
-                color={colors.white} />
-             </ImageBackground>
-           </Introduce> 
-        
-    );
+{/*자기소개 부분*/}
+const Item = () => {
+  return (
+    <Introduce>
+      <Description>자기소개입니다</Description>
+    </Introduce> 
+  );
 };
+
 {/*태그*/}
 const Tags = () => {
   return (
@@ -105,6 +88,29 @@ const Tags = () => {
       </TagArea>
   );
 }
+
+{/*보내기 버튼*/}
+const SendIcon = ({ onPress }) => {
+  return (
+    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.8}>
+      <View
+        style = {{
+        width: 60,
+        height: 60,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: colors.green,
+        borderRadius: 30,
+        borderWidth: 1,
+        marginLeft: 280,
+      }}>
+          <MaterialIcons name="send"
+            size={40}
+            color={colors.white} />
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const FindDetail = ({ navigation }) => {
     {/*차단 버튼*/}
@@ -136,15 +142,27 @@ const FindDetail = ({ navigation }) => {
             }}
         >
           <Container>
-            <Profile size = {180} imageUri = {Images.logo.uri}/>
+            <ImageBackground
+             style = {{
+              width: 180,
+              height:180,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: colors.green,
+              borderRadius: 90,
+              borderWidth: 1,
+            }}>
+              <Profile size = {160} imageUri = {Images.Bear.uri}/>
+            </ImageBackground>
             <Name>이름</Name>
             <Description>멀리 떨어져 있음</Description>
-              <Tags/>
+            <Tags/>
           </Container>
-          <View style={{width: '90%',height: 350, alignItems: 'center'}}>
+          <View style={{width: '90%', alignItems: 'center'}}>
             <Line/>
             <Subtitle text="자기소개" bold="true" />
-            <Item onPress={_handleItemPress} />
+            <Item/>
+            <SendIcon onPress={_handleItemPress}/>
           </View>
         </SafeAreaView>
         </ScrollView>

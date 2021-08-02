@@ -1,6 +1,6 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList, Alert } from 'react-native';
+import { FlatList, Alert, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 
@@ -9,10 +9,10 @@ const Container = styled.View`
     background-color: ${colors.white};
 `;
 
-const ItemContainer = styled.Pressable`
+const ItemContainer = styled.View`
     flex-direction: row;
     align-items: center;
-    border-bottom-width: 1px;
+    border-width: 0.5px;
     border-color: ${colors.grey};
     padding: 15px 20px;
 `;
@@ -53,21 +53,23 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
     const theme = useContext(ThemeContext);
 
     return (
-        <ItemContainer onPress={() => onPress({ id, title })}
+        <TouchableOpacity onPress={() => onPress({ id, title })}
         onLongPress={() => Alert.alert("삭제", "해당 목록을 삭제하시겠습니까?", 
         [{text: "예", onPress: () => {}},
         {text: "취소", onPress: () => {}},]
-        )} >
-            <ItemTextContainer>
-                <ItemTitle>{title}</ItemTitle>
-                <ItemDescription>{description}</ItemDescription>
-            </ItemTextContainer>
-            <ItemTime>{createdAt}</ItemTime>
-            <MaterialIcons
-                name="keyboard-arrow-right"
-                size={24}
-            />
-        </ItemContainer>
+        )}>
+            <ItemContainer>
+                <ItemTextContainer>
+                    <ItemTitle>{title}</ItemTitle>
+                    <ItemDescription>{description}</ItemDescription>
+                </ItemTextContainer>
+                <ItemTime>{createdAt}</ItemTime>
+                <MaterialIcons
+                    name="keyboard-arrow-right"
+                    size={24}
+                />
+            </ItemContainer>
+        </TouchableOpacity>
     );
 };
 

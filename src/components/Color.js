@@ -1,12 +1,12 @@
 import React from 'react';
-import { Pressable} from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { colors } from '../Theme';
 
 {/* 편지 쓰기 화면 편지 색 바꾸기 버튼 */}
 const Color = (props) => {
     return (
-        <Pressable
-            activeOpacity={0.8}
+        <TouchableOpacity
+            activeOpacity={0.5}
             onPress={props.onPress}
             style={{
                 height: 40,
@@ -18,7 +18,7 @@ const Color = (props) => {
                 marginRight: 10,
             }}
         >     
-        </Pressable>
+        </TouchableOpacity>
     );
 };
 

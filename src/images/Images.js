@@ -6,6 +6,33 @@ const Images = {
     },
     Stamp: {
       uri: require('../images/Stamp.png')
+    },
+    Bear: {
+      uri: require('../images/bear.png')
+    },
+    Penguin: {
+      uri: require('../images/penguin.png')
+    },
+    Pig: {
+      uri: require('../images/pig.png')
+    },
+    Rabbit: {
+      uri: require('../images/rabbit.png')
+    },
+    MailIcon: {
+      uri: require('../images/mailIcon.png')
+    },
+    E: {
+      uri: require('../images/stampE.png')
+    },
+    W: {
+      uri: require('../images/stampW.png')
+    },
+    H: {
+      uri: require('../images/stampH.png')
+    },
+    A: {
+      uri: require('../images/stampA.png')
     }
 }
   export { Images }; 
