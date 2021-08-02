@@ -9,7 +9,10 @@ import {
 import { colors, fontSizes } from "../Theme";
 import Stamp from "./Stamp";
 
-const LetterCard = ({ letterType, onPress }) => {
+const LetterCard = ({
+  letter: { id, username, date, content, letterType },
+  onPress,
+}) => {
   const getStyle = () => {
     // 편지지 종류에 따라 다른 스타일 리턴
     if (letterType === "yellow") {
@@ -51,12 +54,7 @@ const LetterCard = ({ letterType, onPress }) => {
               marginBottom: 2,
             }}
           >
-            <Text style={{ flex: 2, paddingRight: 20 }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-              blandit quis erat nec blandit. Integer non vestibulum purus.
-              Phasellus eget imperdiet nisl, vel tempor est. Integer sed
-              tincidunt dolor, ac accumsan augue.
-            </Text>
+            <Text style={{ flex: 2, paddingRight: 20 }}>{content}</Text>
             <Stamp />
           </View>
           {/* 사용자 정보 */}
@@ -80,9 +78,9 @@ const LetterCard = ({ letterType, onPress }) => {
             ></View>
             <View style={{ width: "90%" }}>
               <Text style={{ fontSize: fontSizes.base, marginBottom: 4 }}>
-                닉네임
+                {username}
               </Text>
-              <Text style={{ fontSize: fontSizes.small }}>날짜</Text>
+              <Text style={{ fontSize: fontSizes.small }}>{date}</Text>
             </View>
           </View>
         </View>

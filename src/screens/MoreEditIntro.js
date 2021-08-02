@@ -8,7 +8,13 @@ const MoreEditIntro = ({ navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => (
-        <HeaderButton onPress={() => console.log("완료")} title="완료" />
+        <HeaderButton
+          onPress={() => {
+            console.log("완료");
+            navigation.goBack();
+          }}
+          title="완료"
+        />
       ),
     });
   }, []);

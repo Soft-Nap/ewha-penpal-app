@@ -1,7 +1,18 @@
 import React, { useLayoutEffect } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import { colors } from "../Theme";
 import LetterCard from "../components/LetterCard";
+
+const letters = [];
+for (let i = 0; i < 10; i++) {
+  letters.push({
+    id: i,
+    username: i,
+    date: i * 1000,
+    content: "blahblah",
+    letterType: "yellow",
+  });
+}
 
 const HomeSending = ({ navigation }) => {
   useLayoutEffect(() => {
@@ -19,22 +30,23 @@ const HomeSending = ({ navigation }) => {
         justifyContent: "center",
       }}
     >
-      <ScrollView
+      <FlatList
         style={{ marginTop: 20, padding: 50 }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
         }}
-      >
-        <LetterCard
-          letterType="yellow"
-          onPress={() => navigation.navigate("HomeMail")}
-        />
-        <LetterCard
-          letterType="pink"
-          onPress={() => navigation.navigate("HomeMail")}
-        />
-      </ScrollView>
+        data={letters}
+        renderItem={({ item }) => (
+          <LetterCard
+            onPress={() => {
+              navigation.navigate("HomeMail");
+            }}
+            letter={item}
+          />
+        )}
+        keyExtractor={(letter) => letter["id"].toString()}
+      ></FlatList>
     </SafeAreaView>
   );
 };

@@ -33,7 +33,14 @@ const MoreEditProfile = ({ navigation }) => {
       >
         {/* 유저 프로필 및 위치 */}
         <View style={{ alignItems: "center" }}>
-          <Profile size={180} imageUri={Images.logo.uri} />
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              console.log("Change profile");
+            }}
+          >
+            <Profile size={180} imageUri={Images.logo.uri} />
+          </TouchableOpacity>
           {/* 닉네임 변경 Alert 창 */}
           <Dialog.Container visible={dialogVisible}>
             <Dialog.Title>닉네임 변경</Dialog.Title>
