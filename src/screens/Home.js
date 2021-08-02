@@ -5,16 +5,25 @@ import {
   View,
   FlatList,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
 import NewButton from "../components/NewButton";
 
-{
-  /* 최근 받은 편지 렌더링 */
+const letters = [];
+for (let i = 0; i < 0; i++) {
+  letters.push({
+    id: i,
+    username: "username",
+    date: i * 100,
+    content: "blahblah",
+  });
 }
-const renderLetter = ({ item }) => {
+
+/* 최근 받은 편지 렌더링 */
+const RecentLetter = ({ item: { id, username, date, content }, onPress }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -29,12 +38,14 @@ const renderLetter = ({ item }) => {
         borderWidth: 1,
         paddingVertical: 20,
         paddingHorizontal: 10,
+        marginRight: 16,
       }}
+      onPress={onPress}
     >
       {/* 편지 내용 */}
       <View style={{ width: "100%", height: "80%" }}>
         <Text style={{ fontSize: fontSizes.base, textAlign: "left" }}>
-          텍스트텍스트텍스트텍스트텍스트텍스트텍스트텍
+          {content}
         </Text>
       </View>
       {/* 유저 정보 */}
@@ -58,9 +69,9 @@ const renderLetter = ({ item }) => {
         ></View>
         <View style={{ width: "90%" }}>
           <Text style={{ fontSize: fontSizes.base, marginBottom: 4 }}>
-            닉네임
+            {username}
           </Text>
-          <Text style={{ fontSize: fontSizes.small }}>날짜</Text>
+          <Text style={{ fontSize: fontSizes.small }}>{date}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -92,14 +103,47 @@ const Home = ({ navigation }) => {
       </View>
 
       {/* 최근 받은 편지 */}
-      <View style={{ width: "90%", height: 300 }}>
+      <View style={{ width: "90%", height: 310 }}>
         <Subtitle text="최근 받은 편지" bold="true" />
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
-          // data={letterList}
-          renderItem={renderLetter}
-          // keyExtractor={item => item.id}
+          data={letters}
+          renderItem={({ item }) => (
+            <RecentLetter
+              item={item}
+              onPress={() => navigation.navigate("HomeMail")}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+          ListEmptyComponent={() => (
+            <View
+              style={{
+                justifyContent: "center",
+                alignItems: "center",
+                width: Dimensions.get("window").width,
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: fontSizes.large,
+                  fontWeight: "bold",
+                  right: 30,
+                  marginBottom: 3,
+                }}
+              >
+                최근 받은 편지가 없어요.
+              </Text>
+              <Text
+                style={{
+                  fontSize: fontSizes.base,
+                  right: 30,
+                }}
+              >
+                친구들에게 먼저 편지를 보내보세요.
+              </Text>
+            </View>
+          )}
         />
         <Line />
       </View>
