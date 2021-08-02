@@ -2,6 +2,8 @@ import React from "react";
 import { SafeAreaView, FlatList } from "react-native";
 import { colors } from "../Theme";
 import LetterCard from "../components/LetterCard";
+import EmptyStateScreen from "./EmptyStateScreen";
+import { Images } from "../images/Images";
 
 const letters = [];
 for (let i = 0; i < 10; i++) {
@@ -25,14 +27,22 @@ const HomeReceived = () => {
       }}
     >
       <FlatList
-        style={{ marginTop: 20, padding: 50 }}
+        style={{ marginTop: 20, padding: 50, width: "100%" }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
+          alignItems: "center",
         }}
         data={letters}
         renderItem={({ item }) => <LetterCard letter={item} />}
         keyExtractor={(letter) => letter["id"].toString()}
+        ListEmptyComponent={() => (
+          <EmptyStateScreen
+            imageUri={Images.HomeLetterEmpty.uri}
+            title={"오고 있는 편지가 없어요."}
+            description={"새 친구에게 편지를 먼저 보내보세요."}
+          />
+        )}
       ></FlatList>
     </SafeAreaView>
   );
