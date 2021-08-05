@@ -1,4 +1,6 @@
-{/*props.imageUri로 각 이미지 전달*/}
+{
+  /*props.imageUri로 각 이미지 전달*/
+}
 
 const Images = {
     logo: {
@@ -34,5 +36,8 @@ const Images = {
     A: {
       uri: require('../images/stampA.png')
     }
+    HomeLetterEmpty: {
+      uri: require("../images/HomeLetterEmpty.jpg"),
+    },
 }
   export { Images }; 

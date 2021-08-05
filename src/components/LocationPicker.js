@@ -103,8 +103,11 @@ const gangwon = [
 
 const LocationPicker = () => {
   const pickerRef = useRef();
-  const [value, setValue] = useState();
+  const pickerRef2 = useRef();
+  const [provValue, setProvValue] = useState();
   const [prov, setProv] = useState();
+  const [detailValue, setDetailValue] = useState();
+  const [detail, setDetail] = useState();
 
   return (
     <View
@@ -116,6 +119,7 @@ const LocationPicker = () => {
         color="black"
         style={{ marginRight: 2 }}
       />
+      {/* 도 */}
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => pickerRef.current.show()}
@@ -124,6 +128,7 @@ const LocationPicker = () => {
           {prov ? prov : "시/도"}
         </Text>
       </TouchableOpacity>
+      {/* 구분선 */}
       <Text
         style={{
           fontSize: fontSizes.base,
@@ -133,26 +138,35 @@ const LocationPicker = () => {
       >
         |
       </Text>
+      {/* 시/구 */}
       <TouchableOpacity
         activeOpacity={0.8}
-        onPress={() => pickerRef.current.show()}
+        onPress={() => pickerRef2.current.show()}
       >
         <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
-          {prov ? prov : "시/도"}
+          {detail ? detail : "시/구"}
         </Text>
       </TouchableOpacity>
 
       <ReactNativePickerModule
         pickerRef={pickerRef}
-        value={value}
+        value={provValue}
         title={"시/도를 선택해주세요."}
         items={province}
-        onCancel={() => {
-          console.log("Cancelled");
+        onValueChange={(provValue) => {
+          setProv(provValue);
+          setProvValue(provValue);
         }}
-        onValueChange={(value) => {
-          setProv(value);
-          setValue(value);
+      />
+
+      <ReactNativePickerModule
+        pickerRef={pickerRef2}
+        value={detailValue}
+        title={"시/구를 선택해주세요."}
+        items={seoul}
+        onValueChange={(detailValue) => {
+          setDetail(detailValue);
+          setDetailValue(detailValue);
         }}
       />
     </View>

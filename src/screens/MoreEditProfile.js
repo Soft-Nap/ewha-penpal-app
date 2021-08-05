@@ -1,12 +1,24 @@
-import React from "react";
-import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
 import DistancePicker from "../components/DistancePicker";
+import Profile from "../components/Profile";
+import { Images } from "../images/Images";
+import Dialog from "react-native-dialog";
 
-const MoreEditProfile = () => {
+const MoreEditProfile = ({ navigation }) => {
+  const [dialogVisible, setDialogVisible] = useState(false);
+
   return (
     <SafeAreaView
       style={{
@@ -16,19 +28,55 @@ const MoreEditProfile = () => {
       }}
     >
       <ScrollView
-        style={{ width: "100%" }}
+        style={{ width: "100%", paddingTop: 30 }}
         contentContainerStyle={{ alignItems: "center" }}
       >
         {/* 유저 프로필 및 위치 */}
         <View style={{ alignItems: "center" }}>
-          {/* 프로필 사진 추가 필요 */}
+          <TouchableOpacity
+            activeOpacity={0.8}
+            onPress={() => {
+              console.log("Change profile");
+            }}
+          >
+            <Profile size={180} imageUri={Images.logo.uri} />
+          </TouchableOpacity>
+          {/* 닉네임 변경 Alert 창 */}
+          <Dialog.Container visible={dialogVisible}>
+            <Dialog.Title>닉네임 변경</Dialog.Title>
+            <Dialog.Description>
+              변경할 닉네임을 입력해주세요.
+            </Dialog.Description>
+            <Dialog.Input
+              wrapperStyle={{ backgroundColor: colors.white, opacity: 20 }}
+              maxLength={10}
+            />
+            <Dialog.Button
+              label="취소"
+              bold={true}
+              onPress={() => {
+                setDialogVisible(false);
+              }}
+            />
+            <Dialog.Button
+              label="변경"
+              onPress={() => {
+                console.log("닉네임 변경");
+                setDialogVisible(false);
+              }}
+            />
+          </Dialog.Container>
           <Text
             style={{
               fontSize: fontSizes.xlarge,
               color: colors.black,
               fontWeight: "bold",
               textAlign: "center",
+              marginTop: 20,
               marginBottom: 8,
+            }}
+            onPress={() => {
+              setDialogVisible(true);
             }}
           >
             닉네임
@@ -52,7 +100,13 @@ const MoreEditProfile = () => {
         <View style={{ width: "90%" }}>
           <Line />
           <Subtitle text="자기소개" />
-          <View style={{ minHeight: 235, marginBottom: 50 }}>
+          <TouchableOpacity
+            style={{ minHeight: 235, marginBottom: 50 }}
+            activeOpacity={0.8}
+            onPress={() => {
+              navigation.navigate("EditIntro");
+            }}
+          >
             <View style={styles.boxBackground}>
               <View style={styles.boxBackgroundInside}>
                 <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
@@ -72,7 +126,7 @@ const MoreEditProfile = () => {
                 </Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>

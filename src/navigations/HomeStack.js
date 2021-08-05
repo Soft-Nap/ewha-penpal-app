@@ -53,7 +53,7 @@ function LetterStackScreen() {
         name="HomeMail"
         component={HomeMail}
         options={{
-          gestureEnabled: false,
+          // gestureEnabled: false,
           headerTitle: "",
           animationEnabled: true,
           headerBackImage: () => {
@@ -129,7 +129,6 @@ const HomeStack = ({ navigation, route }) => {
         component={LetterStackScreen}
         options={{
           headerShown: false,
-          gestureEnabled: false,
         }}
       />
 
@@ -137,7 +136,6 @@ const HomeStack = ({ navigation, route }) => {
         name="HomeMail"
         component={HomeMail}
         options={{
-          gestureEnabled: false,
           headerTitle: "",
           animationEnabled: true,
           headerBackImage: () => {
