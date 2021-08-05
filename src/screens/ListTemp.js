@@ -1,18 +1,19 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList } from 'react-native';
+import { FlatList, Alert, TouchableOpacity, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
+import Subtitle from '../components/Subtitle';
 
 const Container = styled.View`
     flex: 1;
     background-color: ${colors.white};
 `;
 
-const ItemContainer = styled.Pressable`
+const ItemContainer = styled.View`
     flex-direction: row;
     align-items: center;
-    border-bottom-width: 1px;
+    border-width: 0.5px;
     border-color: ${colors.grey};
     padding: 15px 20px;
 `;
@@ -39,7 +40,7 @@ const ItemTime = styled.Text`
 `;
 
 const channels = [];
-for (let idx = 0; idx < 5; idx++)
+for (let idx = 0; idx < 2; idx++)
 {
     channels.push({
         id: idx,
@@ -53,17 +54,23 @@ const Item = ({ item: { id, title, description, createdAt }, onPress }) => {
     const theme = useContext(ThemeContext);
 
     return (
-        <ItemContainer onPress={() => onPress({ id, title })} >
-            <ItemTextContainer>
-                <ItemTitle>{title}</ItemTitle>
-                <ItemDescription>{description}</ItemDescription>
-            </ItemTextContainer>
-            <ItemTime>{createdAt}</ItemTime>
-            <MaterialIcons
-                name="keyboard-arrow-right"
-                size={24}
-            />
-        </ItemContainer>
+        <TouchableOpacity onPress={() => onPress({ id, title })}
+        onLongPress={() => Alert.alert("삭제", "해당 목록을 삭제하시겠습니까?", 
+        [{text: "예", onPress: () => {}},
+        {text: "취소", onPress: () => {}},]
+        )}>
+            <ItemContainer>
+                <ItemTextContainer>
+                    <ItemTitle>{title}</ItemTitle>
+                    <ItemDescription>{description}</ItemDescription>
+                </ItemTextContainer>
+                <ItemTime>{createdAt}</ItemTime>
+                <MaterialIcons
+                    name="keyboard-arrow-right"
+                    size={24}
+                />
+            </ItemContainer>
+        </TouchableOpacity>
     );
 };
 
@@ -81,6 +88,9 @@ const Temp = ({ navigation }) => {
                 renderItem={({ item }) => (
                     <Item item={item} onPress={_handleItemPress} />
                 )}
+                ListEmptyComponent={<View style={{alignItems:'center'}}>
+                    <Subtitle text="임시 저장함이 텅텅 비었어요!" bold="true"/>
+                    </View>}
             />
         </Container>
     );

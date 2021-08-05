@@ -28,7 +28,7 @@ class ModalStamp extends Component {
   constructor() {
     super();
     this.state = {
-      img: Images.logo.uri,
+      img: Images.E.uri,
     };
   }
 
@@ -50,28 +50,39 @@ class ModalStamp extends Component {
                     <View style={styles.stampView}>
                         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
                           <Pressable onPress={this.changeImage1}>
-                            <Stamp/>
+                            <Stamp imageUri = {Images.E.uri}/>
                           </Pressable>
                           <Pressable onPress={this.changeImage2}>
-                            <Stamp/>
+                            <Stamp imageUri = {Images.W.uri}/>
                           </Pressable>
-                          <Stamp/><Stamp/><Stamp/>
+                          <Pressable onPress={this.changeImage3}>
+                            <Stamp imageUri = {Images.H.uri}/>
+                          </Pressable>
+                          <Pressable onPress={this.changeImage4}>
+                            <Stamp imageUri = {Images.A.uri}/>
+                          </Pressable>
                         </ScrollView>
                     </View>
                 </View>
             </TouchableOpacity>
         </Modal>
-        <Pressable onPress={() => {this.setModalVisible(true);}}>
+        <TouchableOpacity onPress={() => {this.setModalVisible(true);}} activeOpacity = {0.5}>
             <Stamp imageUri = {this.state.img}/>
-        </Pressable>
+        </TouchableOpacity>
       </View>
     );
   }
   changeImage1 = () => {
-    this.setState({img:Images.Stamp.uri});
+    this.setState({img:Images.E.uri});
   }
   changeImage2 = () => {
-    this.setState({img:Images.logo.uri});
+    this.setState({img:Images.W.uri});
+  }
+  changeImage3 = () => {
+    this.setState({img:Images.H.uri});
+  }
+  changeImage4 = () => {
+    this.setState({img:Images.A.uri});
   }
 }
 

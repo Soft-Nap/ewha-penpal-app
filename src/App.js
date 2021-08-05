@@ -13,7 +13,6 @@ const App = () => {
   return (
     <ProgressProvider>
       <NavigationContainer>
-        {/* <AuthStack /> */}
         <TabNavigation />
         {/* user?.uid && user?.email ? <TabNavigation /> : <AuthStack /> */}
         {inProgress && <Spinner />}
