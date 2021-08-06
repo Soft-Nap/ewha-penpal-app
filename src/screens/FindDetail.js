@@ -8,6 +8,7 @@ import {colors} from '../Theme';
 import Profile from '../components/Profile';
 import {Images} from '../images/Images';
 import Tag from '../components/Tag';
+import Buttons from '../components/Buttons';
 
 const Container = styled.View`
     background-color: ${colors.white};
@@ -37,11 +38,9 @@ const Description = styled.Text`
 `;
 
 const TagArea = styled.View`
-    align-items: center;
     background-color: ${colors.white};
-    height: 45px;
+    height: 50px;
     width: 250px;
-    flex-direction: row;
 `;
 {/*
 const Tag = styled.View`
@@ -82,8 +81,11 @@ const Item = () => {
 const Tags = () => {
   return (
       <TagArea>
-        <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-          <Tag text = "태그1"/><Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
+        <ScrollView contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}
+        showsVerticalScrollIndicator={true}>
+          <Tag text = "태그1"/>
+          <Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
+          <Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
         </ScrollView>
       </TagArea>
   );
@@ -117,14 +119,10 @@ const FindDetail = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
           headerRight: () => (
-            <MaterialIcons name="block"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => Alert.alert("차단", "차단하시겠습니까?", 
-                [{text: "예", onPress: () => console.log("차단 완료")},
-                {text: "아니오", onPress: () => console.log("차단 취소")},]
-              )}
-            />
+            <Buttons onPress={() => Alert.alert("차단", "차단하시겠습니까?", 
+            [{text: "예", onPress: () => console.log("차단 완료")},
+            {text: "아니오", onPress: () => console.log("차단 취소")},]
+          )} text="차단" />
           ),
         });
       }, []);
@@ -158,7 +156,7 @@ const FindDetail = ({ navigation }) => {
             <Description>멀리 떨어져 있음</Description>
             <Tags/>
           </Container>
-          <View style={{width: '90%', alignItems: 'center'}}>
+          <View style={{width: '90%',height: 375,alignItems: 'center'}}>
             <Line/>
             <Subtitle text="자기소개" bold="true" />
             <Item/>

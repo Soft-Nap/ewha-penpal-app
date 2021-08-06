@@ -10,6 +10,7 @@ const Tag = (props) => {
         height: 22,
         alignItems: 'center',
         marginRight: 5,
+        marginBottom: 5,
         backgroundColor: colors.pink,
         borderRadius: 20,
         borderWidth: 1,

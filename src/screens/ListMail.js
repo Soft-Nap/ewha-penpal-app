@@ -6,6 +6,7 @@ import {colors} from '../Theme';
 import {Images} from '../images/Images';
 import Stamp from '../components/Stamp';
 import constants from '../utils/constants';
+import Buttons from '../components/Buttons';
 
 const Container = styled.View`
     flex: 1;
@@ -121,10 +122,7 @@ const Mail = ({ navigation, route: { params }}) => {
         navigation.setOptions({
             headerTitle: `${params.title}의 편지`,
             headerRight: () => (
-            <MaterialIcons name="send"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => navigation.navigate('Send')} />
+                <Buttons onPress={() => navigation.navigate('Send')} text = "답장"/>
           ),
         });
       }, []);
