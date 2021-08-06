@@ -6,7 +6,7 @@ import { colors, fontSizes } from "../Theme";
 
 let index = 0;
 const distance = [
-  { label: "모두", value: "모두" },
+  { label: "멀리까지", value: "멀리까지" },
   { label: "조금 멀리까지", value: "조금 멀리까지" },
   { label: "가까이", value: "가까이" },
 ];
@@ -22,7 +22,7 @@ const DistancePicker = () => {
         name="waves"
         size={18}
         color="black"
-        style={{ marginRight: 2 }}
+        style={{ marginRight: 4 }}
       />
       <TouchableOpacity
         activeOpacity={0.8}
@@ -37,9 +37,6 @@ const DistancePicker = () => {
         value={value}
         title={"선호하는 거리를 선택해주세요."}
         items={distance}
-        onCancel={() => {
-          console.log("Cancelled");
-        }}
         onValueChange={(value) => {
           setProv(value);
           setValue(value);

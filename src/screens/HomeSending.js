@@ -1,7 +1,20 @@
 import React, { useLayoutEffect } from "react";
-import { SafeAreaView, ScrollView } from "react-native";
+import { SafeAreaView, FlatList } from "react-native";
 import { colors } from "../Theme";
 import LetterCard from "../components/LetterCard";
+import EmptyStateScreen from "./EmptyStateScreen";
+import { Images } from "../images/Images";
+
+const letters = [];
+for (let i = 0; i < 0; i++) {
+  letters.push({
+    id: i,
+    username: i,
+    date: i * 1000,
+    content: "blahblah",
+    letterType: "yellow",
+  });
+}
 
 const HomeSending = ({ navigation }) => {
   useLayoutEffect(() => {
@@ -19,23 +32,31 @@ const HomeSending = ({ navigation }) => {
         justifyContent: "center",
       }}
     >
-      <ScrollView
-        style={{ marginTop: 20, padding: 50 }}
+      <FlatList
+        style={{ marginTop: 20, padding: 50, width: "100%" }}
         contentContainerStyle={{
           flexGrow: 1,
           justifyContent: "center",
+          alignItems: "center",
         }}
-      >
-        <LetterCard
-          letterType="yellow"
-          onPress={() => navigation.navigate("HomeMail")}
-        />
-        <LetterCard
-          letterType="pink"
-          onPress={() => navigation.navigate("HomeMail")}
-        />
-      </ScrollView>
-      {/* We need to add scrollview */}
+        data={letters}
+        renderItem={({ item }) => (
+          <LetterCard
+            onPress={() => {
+              navigation.navigate("HomeMail");
+            }}
+            letter={item}
+          />
+        )}
+        keyExtractor={(letter) => letter["id"].toString()}
+        ListEmptyComponent={() => (
+          <EmptyStateScreen
+            imageUri={Images.HomeLetterEmpty.uri}
+            title={"보내는 편지가 없어요."}
+            description={"펜팔 친구 찾기로 새 친구에게 편지를 보내보세요."}
+          />
+        )}
+      ></FlatList>
     </SafeAreaView>
   );
 };

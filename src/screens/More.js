@@ -3,6 +3,8 @@ import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import { AntDesign } from "@expo/vector-icons";
 import MoreButton from "../components/MoreButton";
+import Profile from "../components/Profile";
+import { Images } from "../images/Images";
 
 const More = ({ navigation }) => {
   return (
@@ -27,17 +29,9 @@ const More = ({ navigation }) => {
               }}
             >
               {/* 프로필 사진 컴포넌트 추가 필요 */}
-              <View
-                style={{
-                  width: 70,
-                  height: 70,
-                  borderRadius: 50,
-                  backgroundColor: "black",
-                  marginRight: 20,
-                }}
-              ></View>
+              <Profile size={70} imageUri={Images.logo.uri} />
               {/* 유저 닉네임, 위치 */}
-              <View style={{ width: "65%" }}>
+              <View style={{ width: "65%", marginLeft: 15 }}>
                 <Text
                   style={{
                     fontSize: fontSizes.large,
