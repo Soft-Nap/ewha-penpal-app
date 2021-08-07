@@ -1,10 +1,18 @@
 import React from "react";
-import { StyleSheet, SafeAreaView, View, Text, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  SafeAreaView,
+  View,
+  Text,
+  ScrollView,
+  ImageBackground,
+} from "react-native";
 import { colors, fontSizes } from "../Theme";
 import { AntDesign } from "@expo/vector-icons";
 import MoreButton from "../components/MoreButton";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
+import Tag from "../components/Tag";
 
 const More = ({ navigation }) => {
   return (
@@ -29,7 +37,19 @@ const More = ({ navigation }) => {
               }}
             >
               {/* 프로필 사진 컴포넌트 추가 필요 */}
-              <Profile size={70} imageUri={Images.logo.uri} />
+              <ImageBackground
+                style={{
+                  width: 70,
+                  height: 70,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: colors.green,
+                  borderRadius: 90,
+                  borderWidth: 1,
+                }}
+              >
+                <Profile size={60} imageUri={Images.Bear.uri} />
+              </ImageBackground>
               {/* 유저 닉네임, 위치 */}
               <View style={{ width: "65%", marginLeft: 15 }}>
                 <Text
@@ -57,10 +77,23 @@ const More = ({ navigation }) => {
             </View>
             {/* 유저 소개 */}
             <View style={{ marginTop: 20, marginLeft: 20, width: "90%" }}>
-              <Text>소개</Text>
+              <Text numberOfLines={2}>소개</Text>
             </View>
             {/* 태그 - 컴포넌트 추가 필요 */}
-            <View style={{ width: "90%" }}></View>
+            <View
+              style={{
+                position: "absolute",
+                marginTop: 20,
+                bottom: 20,
+                width: "90%",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              <Tag />
+              <Tag />
+              <Tag />
+            </View>
           </View>
         </View>
       </View>

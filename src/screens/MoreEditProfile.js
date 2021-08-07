@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
@@ -39,7 +40,19 @@ const MoreEditProfile = ({ navigation }) => {
               console.log("Change profile");
             }}
           >
-            <Profile size={180} imageUri={Images.logo.uri} />
+            <ImageBackground
+              style={{
+                width: 180,
+                height: 180,
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: colors.green,
+                borderRadius: 90,
+                borderWidth: 1,
+              }}
+            >
+              <Profile size={160} imageUri={Images.Bear.uri} />
+            </ImageBackground>
           </TouchableOpacity>
           {/* 닉네임 변경 Alert 창 */}
           <Dialog.Container visible={dialogVisible}>
@@ -109,7 +122,10 @@ const MoreEditProfile = ({ navigation }) => {
           >
             <View style={styles.boxBackground}>
               <View style={styles.boxBackgroundInside}>
-                <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
+                <Text
+                  style={{ fontSize: fontSizes.base, color: colors.black }}
+                  numberOfLines={11}
+                >
                   Contrary to popular belief, Lorem Ipsum is not simply random
                   text. It has roots in a piece of classical Latin literature
                   from 45 BC, making it over 2000 years old. Richard McClintock,
