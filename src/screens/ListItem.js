@@ -24,7 +24,7 @@ const ItemTextContainer = styled.View`
 
 const ItemTitle = styled.Text`
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
 `;
 
 const ItemDescription = styled.Text`

@@ -1,9 +1,10 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
-import { FlatList, Alert, TouchableOpacity, View } from 'react-native';
+import { FlatList, Alert, TouchableOpacity, View, Image } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 import Subtitle from '../components/Subtitle';
+import { Images } from '../images/Images';
 
 const Container = styled.View`
     flex: 1;
@@ -25,7 +26,7 @@ const ItemTextContainer = styled.View`
 
 const ItemTitle = styled.Text`
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
 `;
 
 const ItemDescription = styled.Text`
@@ -88,8 +89,9 @@ const Temp = ({ navigation }) => {
                 renderItem={({ item }) => (
                     <Item item={item} onPress={_handleItemPress} />
                 )}
-                ListEmptyComponent={<View style={{alignItems:'center'}}>
+                ListEmptyComponent={<View style={{alignItems:'center', marginTop: 30}}>
                     <Subtitle text="임시 저장함이 텅텅 비었어요!" bold="true"/>
+                    <Image source={Images.Penguin.uri}/>
                     </View>}
             />
         </Container>
