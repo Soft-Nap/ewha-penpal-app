@@ -259,9 +259,6 @@ const getCity = (value) => {
   }
 };
 
-const myLocation = () => {
-  return gyeonggi;
-};
 const LocationPicker = () => {
   const pickerRef = useRef();
   const pickerRef2 = useRef();

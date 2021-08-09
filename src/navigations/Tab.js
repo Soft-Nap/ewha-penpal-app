@@ -7,6 +7,7 @@ import MoreStack from "./MoreStack";
 import HomeStack from "./HomeStack";
 import ListStack from "./ListStack";
 import FindStack from "./FindStack";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const Tab = createBottomTabNavigator();
 
@@ -26,11 +27,11 @@ const TabNavigation = () => {
         activeTintColor: "black",
         inactiveTintColor: colors.grey,
         style: {
-          position: "absolute",
+          // position: "absolute",
           bottom: 0,
           right: 0,
           left: 0,
-          height: 100,
+          height: responsiveHeight(11),
           borderWidth: 1,
           borderTopWidth: 1,
           backgroundColor: "#F7F6F5",

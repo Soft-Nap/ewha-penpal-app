@@ -30,7 +30,7 @@ const MoreEditIntro = ({ navigation }) => {
       <ScrollView
         style={{
           width: "90%",
-          // height: "90%",
+          height: "50%",
           backgroundColor: colors.beige,
           marginTop: 10,
           padding: 20,

@@ -29,7 +29,7 @@ const MoreEditProfile = ({ navigation }) => {
       }}
     >
       <ScrollView
-        style={{ width: "100%", paddingTop: 30 }}
+        style={{ width: "100%", paddingTop: 30, paddingBottom: 50 }}
         contentContainerStyle={{ alignItems: "center" }}
       >
         {/* 유저 프로필 및 위치 */}
@@ -102,7 +102,7 @@ const MoreEditProfile = ({ navigation }) => {
         <View style={{ width: "90%" }}>
           <Line />
           <Subtitle text="관심사" />
-          <View style={{ minHeight: 235, marginBottom: 50 }}>
+          <View style={{ minHeight: 235, marginBottom: "10%" }}>
             <View style={styles.boxBackgroundPink}>
               <View style={styles.boxBackgroundInside}></View>
             </View>
