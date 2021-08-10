@@ -1,6 +1,9 @@
 import React from "react";
 import { View } from "react-native";
-import { responsiveHeight } from "react-native-responsive-dimensions";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 import { colors } from "../Theme";
 
 const Line = () => {
@@ -10,7 +13,7 @@ const Line = () => {
         width: "100%",
         borderBottomColor: colors.grey,
         borderBottomWidth: 1,
-        marginVertical: responsiveHeight(3.2),
+        marginVertical: responsiveHeight(3.3),
       }}
     ></View>
   );

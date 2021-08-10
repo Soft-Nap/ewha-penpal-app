@@ -16,6 +16,8 @@ import DistancePicker from "../components/DistancePicker";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
 import Dialog from "react-native-dialog";
+import { RFValue } from "react-native-responsive-fontsize";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const MoreEditProfile = ({ navigation }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
@@ -42,8 +44,8 @@ const MoreEditProfile = ({ navigation }) => {
           >
             <ImageBackground
               style={{
-                width: 180,
-                height: 180,
+                width: RFValue(180, 812),
+                height: RFValue(180, 812),
                 alignItems: "center",
                 justifyContent: "center",
                 backgroundColor: colors.green,
@@ -51,7 +53,7 @@ const MoreEditProfile = ({ navigation }) => {
                 borderWidth: 1,
               }}
             >
-              <Profile size={160} imageUri={Images.Bear.uri} />
+              <Profile size={RFValue(160, 812)} imageUri={Images.Bear.uri} />
             </ImageBackground>
           </TouchableOpacity>
           {/* 닉네임 변경 Alert 창 */}
@@ -114,7 +116,7 @@ const MoreEditProfile = ({ navigation }) => {
           <Line />
           <Subtitle text="자기소개" />
           <TouchableOpacity
-            style={{ minHeight: 235, marginBottom: 50 }}
+            style={{ minHeight: 235, marginBottom: 100 }}
             activeOpacity={0.8}
             onPress={() => {
               navigation.navigate("EditIntro");

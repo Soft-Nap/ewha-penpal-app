@@ -2,6 +2,7 @@ import React from "react";
 import { SafeAreaView, ScrollView, View, Text } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const MoreNoticeDetail = () => {
   return (
@@ -15,9 +16,9 @@ const MoreNoticeDetail = () => {
       <ScrollView
         style={{
           width: "90%",
-          height: "90%",
           backgroundColor: colors.beige,
           marginTop: 10,
+          marginBottom: RFValue(30, 812),
           padding: 20,
           paddingTop: 30,
           borderRadius: 15,

@@ -13,6 +13,11 @@ import MoreButton from "../components/MoreButton";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
 import Tag from "../components/Tag";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const More = ({ navigation }) => {
   return (
@@ -24,7 +29,13 @@ const More = ({ navigation }) => {
       }}
     >
       {/* 프로필 */}
-      <View style={{ width: "90%", height: 235, marginBottom: 50 }}>
+      <View
+        style={{
+          width: "90%",
+          height: RFValue(235, 812),
+          marginBottom: RFValue(50, 812),
+        }}
+      >
         <View style={styles.profileBackground}>
           <View style={styles.profileBackgroundInside}>
             {/* 프로필 사진 및 이름, 위치 */}
@@ -39,8 +50,8 @@ const More = ({ navigation }) => {
               {/* 프로필 사진 컴포넌트 추가 필요 */}
               <ImageBackground
                 style={{
-                  width: 70,
-                  height: 70,
+                  width: RFValue(70, 812), // 70
+                  height: RFValue(70, 812),
                   alignItems: "center",
                   justifyContent: "center",
                   backgroundColor: colors.green,
@@ -48,10 +59,10 @@ const More = ({ navigation }) => {
                   borderWidth: 1,
                 }}
               >
-                <Profile size={60} imageUri={Images.Bear.uri} />
+                <Profile size={RFValue(60, 812)} imageUri={Images.Bear.uri} />
               </ImageBackground>
               {/* 유저 닉네임, 위치 */}
-              <View style={{ width: "65%", marginLeft: 15 }}>
+              <View style={{ width: "65%", marginLeft: RFValue(15, 812) }}>
                 <Text
                   style={{
                     fontSize: fontSizes.large,
@@ -83,8 +94,8 @@ const More = ({ navigation }) => {
             <View
               style={{
                 position: "absolute",
-                marginTop: 20,
-                bottom: 20,
+                marginTop: RFValue(20, 812),
+                bottom: RFValue(20, 812),
                 width: "90%",
                 flexDirection: "row",
                 justifyContent: "center",
@@ -134,7 +145,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    height: 235,
+    height: RFValue(235, 812),
     top: 20,
     backgroundColor: colors.green,
     borderRadius: 15,
@@ -143,7 +154,7 @@ const styles = StyleSheet.create({
   },
   profileBackgroundInside: {
     width: "95%",
-    height: 215,
+    height: RFValue(215, 812),
     backgroundColor: colors.beige,
     borderColor: "black",
     borderRadius: 15,
