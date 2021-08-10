@@ -1,5 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text } from "react-native";
+import { responsiveWidth } from "react-native-responsive-dimensions";
 import { fontSizes, colors } from "../Theme";
 
 const MyButton = (props) => {
@@ -15,7 +16,7 @@ const MyButton = (props) => {
         borderRadius: 15,
         borderColor: "black",
         borderWidth: 1,
-        padding: 20,
+        padding: responsiveWidth(5),
       }}
     >
       <Text

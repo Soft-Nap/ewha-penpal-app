@@ -2,6 +2,10 @@ import React, { useState, forwardRef } from "react";
 import { colors, fontSizes } from "../Theme";
 import { View, TextInput, Text } from "react-native";
 import PropTypes from "prop-types";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 const SignupInput = forwardRef(
   (
@@ -29,9 +33,9 @@ const SignupInput = forwardRef(
           borderRadius: 15,
           borderColor: "black",
           borderWidth: 1,
-          padding: 20,
-          marginBottom: 15,
-          height: 60,
+          padding: responsiveWidth(4.5),
+          marginBottom: responsiveWidth(4),
+          height: responsiveWidth(14),
         }}
         placeholderTextColor={colors.grey}
         isFocused={isFocused}

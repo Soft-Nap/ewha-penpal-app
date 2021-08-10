@@ -3,6 +3,10 @@ import { TouchableOpacity, Text } from "react-native";
 import { fontSizes, colors } from "../Theme";
 import { AntDesign } from "@expo/vector-icons";
 import ToggleSwitch from "toggle-switch-react-native";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 /* 더보기 메뉴 리스트 버튼 */
 const MoreButton = (props) => {
@@ -36,9 +40,9 @@ const MoreButton = (props) => {
         flexDirection: "row",
         borderColor: "black",
         borderWidth: 1,
-        paddingVertical: 20,
-        paddingHorizontal: 25,
-        marginBottom: 14,
+        paddingVertical: responsiveWidth(5),
+        paddingHorizontal: responsiveWidth(6),
+        marginBottom: responsiveHeight(1.6),
       }}
     >
       <Text

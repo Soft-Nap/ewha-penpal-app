@@ -6,6 +6,7 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
@@ -15,6 +16,8 @@ import DistancePicker from "../components/DistancePicker";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
 import Dialog from "react-native-dialog";
+import { RFValue } from "react-native-responsive-fontsize";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const MoreEditProfile = ({ navigation }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
@@ -28,7 +31,7 @@ const MoreEditProfile = ({ navigation }) => {
       }}
     >
       <ScrollView
-        style={{ width: "100%", paddingTop: 30 }}
+        style={{ width: "100%", paddingTop: 30, paddingBottom: 50 }}
         contentContainerStyle={{ alignItems: "center" }}
       >
         {/* 유저 프로필 및 위치 */}
@@ -39,7 +42,19 @@ const MoreEditProfile = ({ navigation }) => {
               console.log("Change profile");
             }}
           >
-            <Profile size={180} imageUri={Images.logo.uri} />
+            <ImageBackground
+              style={{
+                width: RFValue(180, 812),
+                height: RFValue(180, 812),
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: colors.green,
+                borderRadius: 90,
+                borderWidth: 1,
+              }}
+            >
+              <Profile size={RFValue(160, 812)} imageUri={Images.Bear.uri} />
+            </ImageBackground>
           </TouchableOpacity>
           {/* 닉네임 변경 Alert 창 */}
           <Dialog.Container visible={dialogVisible}>
@@ -89,7 +104,7 @@ const MoreEditProfile = ({ navigation }) => {
         <View style={{ width: "90%" }}>
           <Line />
           <Subtitle text="관심사" />
-          <View style={{ minHeight: 235, marginBottom: 50 }}>
+          <View style={{ minHeight: 235, marginBottom: "10%" }}>
             <View style={styles.boxBackgroundPink}>
               <View style={styles.boxBackgroundInside}></View>
             </View>
@@ -101,7 +116,7 @@ const MoreEditProfile = ({ navigation }) => {
           <Line />
           <Subtitle text="자기소개" />
           <TouchableOpacity
-            style={{ minHeight: 235, marginBottom: 50 }}
+            style={{ minHeight: 235, marginBottom: 100 }}
             activeOpacity={0.8}
             onPress={() => {
               navigation.navigate("EditIntro");
@@ -109,7 +124,10 @@ const MoreEditProfile = ({ navigation }) => {
           >
             <View style={styles.boxBackground}>
               <View style={styles.boxBackgroundInside}>
-                <Text style={{ fontSize: fontSizes.base, color: colors.black }}>
+                <Text
+                  style={{ fontSize: fontSizes.base, color: colors.black }}
+                  numberOfLines={11}
+                >
                   Contrary to popular belief, Lorem Ipsum is not simply random
                   text. It has roots in a piece of classical Latin literature
                   from 45 BC, making it over 2000 years old. Richard McClintock,

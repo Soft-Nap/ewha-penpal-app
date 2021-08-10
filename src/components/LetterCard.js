@@ -6,6 +6,10 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 import { colors, fontSizes } from "../Theme";
 import Stamp from "./Stamp";
 
@@ -29,7 +33,7 @@ const LetterCard = ({
       onPress={onPress}
       activeOpacity={0.8}
       style={{
-        width: 275,
+        width: responsiveWidth(65), // 275
         height: 160,
         marginBottom: 40,
       }}
@@ -37,7 +41,7 @@ const LetterCard = ({
       <View style={getStyle()}>
         <View
           style={{
-            width: 255,
+            width: responsiveWidth(60), // 255
             height: 140,
             borderWidth: 1,
             borderColor: "black",
@@ -98,8 +102,8 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
-    width: 275,
-    height: 160,
+    width: responsiveWidth(65), // 275
+    height: 160, // 160
     borderWidth: 1,
     borderColor: "black",
     borderRadius: 15,
@@ -114,7 +118,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
-    width: 275,
+    width: responsiveWidth(65), // 275
     height: 160,
     borderWidth: 1,
     borderColor: "black",
@@ -130,7 +134,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: "center",
     alignItems: "center",
-    width: 275,
+    width: responsiveWidth(65), // 275
     height: 160,
     borderWidth: 1,
     borderColor: "black",

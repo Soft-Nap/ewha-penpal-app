@@ -2,6 +2,7 @@ import React from "react";
 import { TouchableOpacity, Text } from "react-native";
 import { fontSizes, colors } from "../Theme";
 import PropTypes from "prop-types";
+import { responsiveWidth } from "react-native-responsive-dimensions";
 
 const LoginButton = ({ title, onPress, isFilled, disabled }) => {
   return (
@@ -17,7 +18,7 @@ const LoginButton = ({ title, onPress, isFilled, disabled }) => {
         borderRadius: 50,
         borderColor: "black",
         borderWidth: 1,
-        padding: 20,
+        padding: responsiveWidth(5),
         opacity: disabled ? 0.5 : 1, // 이메일, 비밀번호 입력되지 않은 경우
       }}
     >

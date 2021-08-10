@@ -11,9 +11,13 @@ import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
 import Subtitle from "../components/Subtitle";
 import NewButton from "../components/NewButton";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 const letters = [];
-for (let i = 0; i < 0; i++) {
+for (let i = 0; i < 2; i++) {
   letters.push({
     id: i,
     username: "username",
@@ -28,17 +32,17 @@ const RecentLetter = ({ item: { id, username, date, content }, onPress }) => {
     <TouchableOpacity
       activeOpacity={0.8}
       style={{
-        width: 150,
-        height: 200,
+        width: responsiveWidth(35),
+        height: responsiveHeight(22.3),
         backgroundColor: colors.beige,
         alignItems: "center",
         justifyContent: "center",
         borderRadius: 15,
         borderColor: "black",
         borderWidth: 1,
-        paddingVertical: 20,
-        paddingHorizontal: 10,
-        marginRight: 16,
+        paddingVertical: responsiveHeight(2.3),
+        paddingHorizontal: responsiveWidth(2),
+        marginRight: responsiveWidth(4.5),
       }}
       onPress={onPress}
     >
@@ -58,8 +62,8 @@ const RecentLetter = ({ item: { id, username, date, content }, onPress }) => {
       >
         <View
           style={{
-            width: 40,
-            height: 40,
+            width: responsiveWidth(10),
+            height: responsiveWidth(10),
             backgroundColor: colors.pink,
             borderRadius: 100 / 2,
             borderColor: "black",
@@ -94,7 +98,7 @@ const Home = ({ navigation }) => {
             fontSize: 24,
             fontWeight: "bold",
             textAlign: "left",
-            marginTop: 80,
+            marginTop: responsiveHeight(9),
           }}
         >
           오늘은 어떤 편지를{"\n"}보내볼까요?
@@ -103,7 +107,7 @@ const Home = ({ navigation }) => {
       </View>
 
       {/* 최근 받은 편지 */}
-      <View style={{ width: "90%", height: 310 }}>
+      <View style={{ width: "90%" }}>
         <Subtitle text="최근 받은 편지" bold="true" />
         <FlatList
           horizontal

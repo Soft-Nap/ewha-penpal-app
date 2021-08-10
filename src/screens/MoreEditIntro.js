@@ -2,6 +2,7 @@ import React, { useLayoutEffect } from "react";
 import { View, SafeAreaView, Text, TextInput, ScrollView } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import HeaderButton from "../components/HeaderButton";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 /* 자기소개 편집 */
 const MoreEditIntro = ({ navigation }) => {
@@ -30,9 +31,9 @@ const MoreEditIntro = ({ navigation }) => {
       <ScrollView
         style={{
           width: "90%",
-          // height: "90%",
           backgroundColor: colors.beige,
           marginTop: 10,
+          marginBottom: 30,
           padding: 20,
           paddingTop: 30,
           borderRadius: 15,
