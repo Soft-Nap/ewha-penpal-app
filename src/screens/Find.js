@@ -1,7 +1,6 @@
 import React from 'react';
-import {View, Button, Pressable, ImageBackground, Image, TouchableOpacity} from 'react-native';
+import {View, Image, TouchableOpacity, Text} from 'react-native';
 import styled from 'styled-components/native';
-import { Entypo, MaterialIcons } from '@expo/vector-icons';
 import {colors} from '../Theme';
 import Tag from '../components/Tag';
 import Swiper from 'react-native-swiper';
@@ -23,7 +22,7 @@ const FindHeader = styled.View`
 {/*추천 친구 공간*/}
 const FindContents = styled.View`
     background-color:  ${colors.white};
-    height: 380px;
+    height: 450px;
     align-items: center;
 `;
 
@@ -75,7 +74,7 @@ const Profile = styled.Image`
 
 const Name = styled.Text`
     font-size: 16px;
-    font-weight: 600;
+    font-weight: bold;
     margin-top: 30px;
 `;
 
@@ -96,6 +95,7 @@ const TagArea = styled.View`
     width: 145px;
     align-items: center;
     flex-direction: row;
+    margin-top: 60px;
 `;
 {/*
 const Tag = styled.View`
@@ -140,7 +140,7 @@ const Friends = ({onPress}) => {
 {/*메일 보내기 버튼*/}
 const MailIcon = ({ onPress }) => {
     return (
-      <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.5}>
+      <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.5} style = {{position: 'absolute', top: 402}}>
         <View
           style = {{
           width: 45,
@@ -175,6 +175,12 @@ const Find = ({ navigation }) => {
                 showsButtons = {true} 
                 showsPagination={true}
                 style = {{ padding: 50 }}
+                paginationStyle = {{position: 'absolute', top: 275}}
+                nextButton = {<Image source={Images.RightArrow.uri} 
+                style = {{width: 45, height: 45, resizeMode: 'contain'}}/>}
+                prevButton = {<Image source={Images.LeftArrow.uri}
+                style = {{width: 45, height: 45, resizeMode: 'contain'}}/>}
+                buttonWrapperStyle = {{position: 'absolute', left: 2.5, top: 200, paddingHorizontal: 50}}
                 >
                     <Friends onPress = {_handleItemPress}/>
                     <Friends onPress = {_handleItemPress}/>
@@ -182,23 +188,9 @@ const Find = ({ navigation }) => {
                     <Friends onPress = {_handleItemPress}/>
                     <Friends onPress = {_handleItemPress}/>
                 </Swiper> 
+                <MailIcon onPress={_handleMailIconPress}/>
             </FindContents>
             <FindFooter>
-                {/*왼쪽 넘기기 버튼
-                <Entypo name="chevron-with-circle-left" 
-                    size={24} 
-                    color="black"
-                    style={{ marginRight: 50}}
-                    onPress={() => {}}/>
-                */}
-                <MailIcon onPress={_handleMailIconPress}/>
-                {/*오른쪽 넘기기 버튼
-                <Entypo name="chevron-with-circle-right" 
-                    size={24} 
-                    color="black" 
-                    style={{ marginLeft: 50 }}
-                    onPress={() => {}}/>
-                */}
             </FindFooter>
         </Container>
     );

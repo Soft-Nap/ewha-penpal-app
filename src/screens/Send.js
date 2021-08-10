@@ -7,6 +7,7 @@ import {colors, White, Pink,Beige} from '../Theme';
 import StampModal from '../components/StampModal';
 import Profile from '../components/Profile';
 import constants from '../utils/constants';
+import Buttons from '../components/Buttons';
 
 const Container = styled.View`
     flex: 1;
@@ -129,17 +130,11 @@ const Send = ({ navigation }) => {
         navigation.setOptions({
             headerRight: () => (
                 <View style={{flexDirection: "row" }}>
-                    <MaterialIcons name="inbox"
-                    size={30}
-                    style={{ marginRight: 11 }}
-                    onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
+                    <Buttons onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
                     [{text: "예", onPress: () => navigation.popToTop()},
                     {text: "취소", onPress: () => {}},]
-                    )} />
-                    <MaterialIcons name="send"
-                    size={30}
-                    style={{ marginRight: 11 }}
-                    onPress={() => navigation.navigate('SendCheck')} />
+                    )} text="저장"/>
+                    <Buttons onPress={() => navigation.navigate('SendCheck')} text="보내기" isSend={true}/>
                 </View>
           ),
           
