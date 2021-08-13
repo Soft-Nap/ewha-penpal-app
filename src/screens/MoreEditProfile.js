@@ -39,7 +39,7 @@ const MoreEditProfile = ({ navigation }) => {
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={() => {
-              console.log("Change profile");
+              navigation.navigate("SelectProfile");
             }}
           >
             <ImageBackground

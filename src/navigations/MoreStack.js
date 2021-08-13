@@ -13,6 +13,7 @@ import MoreEditIntro from "../screens/MoreEditIntro";
 import { Platform } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+import MoreSelectProfile from "../screens/MoreSelectProfile";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ const MoreStack = ({ navigation, route }) => {
     "NoticeDetail",
     "DelAccount",
     "EditIntro",
+    "SelectProfile",
   ];
 
   useLayoutEffect(() => {
@@ -70,6 +72,11 @@ const MoreStack = ({ navigation, route }) => {
         name="EditProfile"
         component={MoreEditProfile}
         options={{ headerTitle: "내 프로필" }}
+      />
+      <Stack.Screen
+        name="SelectProfile"
+        component={MoreSelectProfile}
+        options={{ headerTitle: "캐릭터 변경" }}
       />
       <Stack.Screen
         name="EditIntro"
