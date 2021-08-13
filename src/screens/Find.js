@@ -17,7 +17,7 @@ const Container = styled.View`
 }
 const FindHeader = styled.View`
   background-color: ${colors.white};
-  height: ${constants.height / 15}px;
+  height: ${constants.height / 30}px;
   align-items: center;
 `;
 
@@ -189,7 +189,7 @@ const MailIcon = ({ onPress }) => {
     <TouchableOpacity
       onPress={() => onPress()}
       activeOpacity={0.5}
-      style={{ position: "absolute", top: 402 }}
+      style={{ position: "absolute", top: 377 }}
     >
       <View
         style={{
@@ -245,7 +245,7 @@ const Find = ({ navigation }) => {
           buttonWrapperStyle={{
             position: "absolute",
             left: 2.5,
-            top: 200,
+            top: 175,
             paddingHorizontal: 50,
           }}
         >
