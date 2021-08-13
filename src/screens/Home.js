@@ -6,6 +6,7 @@ import {
   FlatList,
   TouchableOpacity,
   Dimensions,
+  Image
 } from "react-native";
 import { colors, fontSizes } from "../Theme";
 import Line from "../components/Line";
@@ -15,6 +16,9 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import Tooltip from 'react-native-walkthrough-tooltip';
+import { useState } from "react";
+
 
 const letters = [];
 for (let i = 0; i < 2; i++) {
@@ -81,8 +85,8 @@ const RecentLetter = ({ item: { id, username, date, content }, onPress }) => {
     </TouchableOpacity>
   );
 };
-
 const Home = ({ navigation }) => {
+  const [showTip, setTip] = useState(true);
   return (
     <SafeAreaView
       style={{
@@ -119,7 +123,7 @@ const Home = ({ navigation }) => {
               onPress={() => navigation.navigate("HomeMail")}
             />
           )}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item['id'].toString()}
           ListEmptyComponent={() => (
             <View
               style={{
@@ -164,6 +168,21 @@ const Home = ({ navigation }) => {
           onPress={() => navigation.navigate("LetterStack")}
         />
       </View>
+      <Tooltip
+        isVisible={showTip}
+        content={
+          <View>
+            <Text> 원활한 매칭을 위해 먼저 프로필을 설정해주세요! </Text>
+          </View>
+        }
+        onClose={() => setTip(false)}
+        placement="top"
+        showChildInTooltip={false}
+        tooltipStyle={{position: "absolute", top:responsiveHeight(78)}}
+      >
+            <Image
+            style={{ width: 1, height: 1}}/>
+      </Tooltip>
     </SafeAreaView>
   );
 };
