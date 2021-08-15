@@ -172,13 +172,14 @@ const Home = ({ navigation }) => {
         isVisible={showTip}
         content={
           <View>
-            <Text> 원활한 매칭을 위해 먼저 프로필을 설정해주세요! </Text>
+            <Text> {`원활한 매칭을 위해 \n 더보기에서 프로필을 설정해주세요!`} </Text>
           </View>
         }
         onClose={() => setTip(false)}
         placement="top"
         showChildInTooltip={false}
-        tooltipStyle={{position: "absolute", top:responsiveHeight(78)}}
+        tooltipStyle={{position: "absolute", top:responsiveHeight(75)}}
+        contentStyle={{alignItems: 'center'}}
       >
             <Image
             style={{ width: 1, height: 1}}/>
