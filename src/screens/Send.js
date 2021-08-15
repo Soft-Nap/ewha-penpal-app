@@ -37,7 +37,7 @@ const MailHeader = styled.View`
 
 const MailContents = styled.View`
     flex-direction: column;
-    height: ${constants.height/2}px;
+    height: ${constants.height*9/16}px;
     width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
