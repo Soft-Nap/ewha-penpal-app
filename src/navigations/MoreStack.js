@@ -9,11 +9,12 @@ import MoreNotice from "../screens/MoreNotice";
 import MoreDelAccount from "../screens/MoreDelAccount";
 import MoreNoticeDetail from "../screens/MoreNoticeDetail";
 import MoreEditIntro from "../screens/MoreEditIntro";
+import MoreSelectProfile from "../screens/MoreSelectProfile";
+import MoreEditTag from "../screens/MoreEditTag";
 
 import { Platform } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
-import MoreSelectProfile from "../screens/MoreSelectProfile";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ const MoreStack = ({ navigation, route }) => {
     "DelAccount",
     "EditIntro",
     "SelectProfile",
+    "EditTag",
   ];
 
   useLayoutEffect(() => {
@@ -82,6 +84,11 @@ const MoreStack = ({ navigation, route }) => {
         name="EditIntro"
         component={MoreEditIntro}
         options={{ headerTitle: "자기소개 편집" }}
+      />
+      <Stack.Screen
+        name="EditTag"
+        component={MoreEditTag}
+        options={{ headerTitle: "관심사 선택" }}
       />
 
       <Stack.Screen

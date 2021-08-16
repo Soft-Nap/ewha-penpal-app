@@ -7,6 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
+  FlatList,
 } from "react-native";
 import LocationPicker from "../components/LocationPicker";
 import { colors, fontSizes } from "../Theme";
@@ -16,9 +17,11 @@ import DistancePicker from "../components/DistancePicker";
 import Profile from "../components/Profile";
 import { Images } from "../images/Images";
 import Dialog from "react-native-dialog";
+import TagList from "../components/TagList";
 import { RFValue } from "react-native-responsive-fontsize";
-import { responsiveHeight } from "react-native-responsive-dimensions";
 
+// 프로필 아이콘 변경 화면
+// 완료 버튼 누르면 변경 사항 적용, 뒤로 가기 버튼 누르면 적용 x
 const MoreEditProfile = ({ navigation }) => {
   const [dialogVisible, setDialogVisible] = useState(false);
 
@@ -104,11 +107,19 @@ const MoreEditProfile = ({ navigation }) => {
         <View style={{ width: "90%" }}>
           <Line />
           <Subtitle text="관심사" />
-          <View style={{ minHeight: 235, marginBottom: "10%" }}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            style={{ minHeight: 235, marginBottom: "10%" }}
+            onPress={() => {
+              navigation.navigate("EditTag");
+            }}
+          >
             <View style={styles.boxBackgroundPink}>
-              <View style={styles.boxBackgroundInside}></View>
+              <View style={styles.boxBackgroundInside}>
+                <TagList />
+              </View>
             </View>
-          </View>
+          </TouchableOpacity>
         </View>
 
         {/* 자기소개 */}
@@ -177,7 +188,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
 
-    minHeight: 235,
+    minHeight: RFValue(180, 812),
     top: 20,
     backgroundColor: colors.pink,
     borderRadius: 15,
@@ -192,6 +203,8 @@ const styles = StyleSheet.create({
     borderColor: "black",
     borderRadius: 15,
     borderWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
 

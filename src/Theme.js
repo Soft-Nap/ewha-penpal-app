@@ -16,6 +16,7 @@ export const colors = {
   grey: "#B1B1B1",
   yellow: "#E0C389",
   red: "#FF8484",
+  tagGrey: "#c4c4c4",
 };
 
 {

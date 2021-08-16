@@ -3,7 +3,9 @@ import styled, { ThemeContext } from "styled-components/native";
 import { ScrollView } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { colors } from "../Theme";
+import { Images } from "../images/Images";
 import Stamp from "../components/Stamp";
+import constants from "../utils/constants";
 
 const Container = styled.View`
   flex: 1;
@@ -14,8 +16,8 @@ const Container = styled.View`
 const Pad = styled.View`
   flex-direction: column;
   align-items: center;
-  height: 600px;
-  width: 345px;
+  height: ${(constants.height * 3) / 4}px;
+  width: ${(constants.width * 3) / 4}px;
   background-color: ${colors.beige};
   border-width: 1px;
   border-color: ${colors.black};
@@ -26,21 +28,21 @@ const Pad = styled.View`
 const MailHeader = styled.View`
   flex-direction: row;
   height: 80px;
-  width: 345px;
+  width: ${(constants.width * 3) / 4}px;
   padding: 0px 20px;
 `;
 
 const MailContents = styled.View`
   flex-direction: column;
   height: 480px;
-  width: 345px;
+  width: ${(constants.width * 3) / 4}px;
   padding: 0px 20px;
 `;
 
 const MailFooter = styled.View`
   flex-direction: row-reverse;
   height: 30px;
-  width: 345px;
+  width: ${(constants.width * 3) / 4}px;
   padding: 0px 20px;
 `;
 
@@ -48,12 +50,11 @@ const HeaderText = styled.View`
   flex: 1;
   flex-direction: column;
   height: 60px;
-  width: 300px;
+  width: ${(constants.width * 3) / 4}px;
 `;
 
 const Person = styled.Text`
   font-size: 16px;
-  font-weight: 600;
 `;
 
 const Contents = styled.Text`
@@ -98,13 +99,11 @@ const Item = () => {
           <Person>To.받는 사람</Person>
           <Time>보낸 시간</Time>
         </HeaderText>
-        <Stamp />
+        <Stamp imageUri={Images.logo.uri} />
       </MailHeader>
       <ScrollView showsVerticalScrollIndicator={false}>
         <MailContents>
-          <Contents>
-            저 월욜에 깃허브에 올리다가 지금까지 했던 거 싹 다 날렸어요ㅠㅠ
-          </Contents>
+          <Contents>편지 내용</Contents>
         </MailContents>
       </ScrollView>
       <MailFooter>
@@ -114,7 +113,7 @@ const Item = () => {
   );
 };
 
-const HomeMail = ({ navigation }) => {
+const HomeMail = () => {
   return (
     <Container>
       <Item />

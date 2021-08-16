@@ -79,7 +79,11 @@ function LetterStackScreen() {
 const HomeStack = ({ navigation, route }) => {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === "HomeReceived" || routeName === "LetterStack") {
+    if (
+      routeName === "HomeReceived" ||
+      routeName === "LetterStack" ||
+      routeName === "HomeMail"
+    ) {
       navigation.setOptions({ tabBarVisible: false });
     } else {
       navigation.setOptions({ tabBarVisible: true });
