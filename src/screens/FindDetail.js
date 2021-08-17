@@ -10,6 +10,7 @@ import {Images} from '../images/Images';
 import Tag from '../components/Tag';
 import Buttons from '../components/Buttons';
 import constants from '../utils/constants';
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const Container = styled.View`
     background-color: ${colors.white};
@@ -61,7 +62,7 @@ const Introduce = styled.View`
     flex-direction: column;
     align-items: center;
     height: 200px;
-    width: ${constants.width*9/10}px;
+    width: ${responsiveWidth(90)}px;
     background-color: ${colors.beige};
     border-width: 1px;
     border-color: ${colors.black};
@@ -95,7 +96,7 @@ const Tags = () => {
 {/*보내기 버튼*/}
 const SendIcon = ({ onPress }) => {
   return (
-    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.9} style={{position: 'absolute', top: 275, left: constants.width*4/5}}>
+    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.9} style={{position: 'absolute', top: 275, right: responsiveWidth(0)}}>
       <Image source = {Images.SendIcon.uri} style = {{width: 60, height: 60, resizeMode: 'contain'}}/>
     </TouchableOpacity>
   );
