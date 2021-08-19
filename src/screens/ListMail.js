@@ -1,12 +1,12 @@
 import React, { useContext, useLayoutEffect } from 'react';
 import styled, {ThemeContext} from 'styled-components/native';
 import { ScrollView } from 'react-native';
-import { MaterialIcons } from '@expo/vector-icons';
-import {colors} from '../Theme';
+import {colors, fontSizes} from '../Theme';
 import {Images} from '../images/Images';
 import Stamp from '../components/Stamp';
 import constants from '../utils/constants';
 import Buttons from '../components/Buttons';
+import { RFValue } from "react-native-responsive-fontsize";
 
 const Container = styled.View`
     flex: 1;
@@ -43,7 +43,7 @@ const MailContents = styled.View`
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
-    height: 30px;
+    height: 35px;
     width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
@@ -56,17 +56,17 @@ width: ${constants.width*3/4}px;
 `;
 
 const Person = styled.Text`
-    font-size: 16px;
+    font-size: ${RFValue(fontSizes.xlarge, 812)}px;
 `;
 
 const Contents = styled.Text`
-    font-size: 14px;
+    font-size: ${RFValue(fontSizes.large, 812)}px;
     margin-top: 5px;
     color: ${colors.black};
 `;
 
 const Time = styled.Text`
-    font-size: 12px;
+    font-size: ${RFValue(fontSizes.small, 812)}px;
     color: ${colors.black};
 `;
 {/*
