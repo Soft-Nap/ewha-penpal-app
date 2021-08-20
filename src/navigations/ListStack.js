@@ -75,7 +75,7 @@ const ListStack = ({navigation, route}) => {
             <Stack.Screen 
                 name="SendCheck" 
                 component={SendCheck} 
-                options={{ headerTitle: '편지 발송 완료!', headerBackTitleVisible: false }}
+                options={{ headerTitle: '편지 발송 완료!', headerLeft: null }}
             />
             
         </Stack.Navigator>

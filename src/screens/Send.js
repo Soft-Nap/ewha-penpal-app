@@ -1,13 +1,14 @@
 import React, { useContext, useLayoutEffect, useState } from 'react';
 import styled, {ThemeProvider} from 'styled-components/native';
-import { Modal, Pressable, Alert, View} from 'react-native';
+import { Alert, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Color from '../components/Color';
-import {colors, White, Pink,Beige} from '../Theme';
+import {colors, White, Pink, Beige, fontSizes} from '../Theme';
 import StampModal from '../components/StampModal';
 import Profile from '../components/Profile';
 import constants from '../utils/constants';
 import Buttons from '../components/Buttons';
+import { RFValue } from "react-native-responsive-fontsize";
 
 const Container = styled.View`
     flex: 1;
@@ -44,7 +45,7 @@ const MailContents = styled.View`
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
-    height: 30px;
+    height: 35px;
     width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
@@ -58,12 +59,12 @@ const HeaderText = styled.View`
 `;
 
 const Person = styled.Text`
-    font-size: 16px;
+    font-size: ${RFValue(fontSizes.xlarge, 812)}px;
     font-weight: 600;
 `;
 
 const Time = styled.Text`
-    font-size: 12px;
+    font-size: ${RFValue(fontSizes.base, 812)}px;
     color: ${colors.black};
 `;
 
@@ -77,7 +78,7 @@ const Stamp = styled.Image`
 `; */}
 
 const Input = styled.TextInput`
-    font-size: 14px;
+    font-size: ${RFValue(fontSizes.large, 812)}px;
 `;
 
 const ColorSelectArea = styled.View`

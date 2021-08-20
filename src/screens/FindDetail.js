@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, SafeAreaView, Alert, View, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import { ScrollView, SafeAreaView, Alert, View, ImageBackground, TouchableOpacity, Image, ToastAndroid } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Line from '../components/Line';
 import Subtitle from '../components/Subtitle';
@@ -43,6 +43,7 @@ const TagArea = styled.View`
     background-color: ${colors.white};
     height: 50px;
     width: 250px;
+    margin-top: 10px;
 `;
 {/*
 const Tag = styled.View`
@@ -108,8 +109,8 @@ const FindDetail = ({ navigation }) => {
         navigation.setOptions({
           headerRight: () => (
             <Buttons onPress={() => Alert.alert("차단", "차단하시겠습니까?", 
-            [{text: "예", onPress: () => console.log("차단 완료")},
-            {text: "아니오", onPress: () => console.log("차단 취소")},]
+            [{text: "예", onPress: () => ToastAndroid.show('차단 완료!', ToastAndroid.SHORT)},
+            {text: "아니오", onPress: () => {}},]
           )} text="차단" />
           ),
         });
