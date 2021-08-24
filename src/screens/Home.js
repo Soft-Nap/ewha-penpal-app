@@ -18,6 +18,7 @@ import {
 } from "react-native-responsive-dimensions";
 import Tooltip from 'react-native-walkthrough-tooltip';
 import { useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
 const letters = [];
@@ -87,7 +88,26 @@ const RecentLetter = ({ item: { id, username, date, content }, onPress }) => {
 };
 const Home = ({ navigation }) => {
   const [showTip, setTip] = useState(true);
-  return (
+  const _onDone = async showTip => {
+      await AsyncStorage.setItem('showTip', 'false');
+      setTip(false);
+  };
+  React.useEffect(() => {
+    async function getStorage() {
+      if (await AsyncStorage.getItem("showTip")) {
+        let value = await AsyncStorage.getItem("showTip");
+        console.log(value)
+        if (value === 'false'){
+          setTip(false)
+        } else {
+          setTip(true)
+        }
+      }
+    }
+    getStorage();
+  }, []);
+  
+   return (
     <SafeAreaView
       style={{
         flex: 1,
@@ -175,7 +195,7 @@ const Home = ({ navigation }) => {
             <Text> {`원활한 매칭을 위해 \n 더보기에서 프로필을 설정해주세요!`} </Text>
           </View>
         }
-        onClose={() => setTip(false)}
+        onClose={() => _onDone(showTip)}
         placement="top"
         showChildInTooltip={false}
         tooltipStyle={{position: "absolute", top:responsiveHeight(75)}}

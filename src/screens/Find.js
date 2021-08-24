@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Image, TouchableOpacity, Text } from "react-native";
 import styled from "styled-components/native";
-import { colors } from "../Theme";
+import { colors, fontSizes } from "../Theme";
 import Tag from "../components/Tag";
 import Swiper from "react-native-swiper";
 import constants from "../utils/constants";
 import { Images } from "../images/Images";
+import { RFValue } from "react-native-responsive-fontsize";
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const Container = styled.View`
   flex: 1;
@@ -26,7 +28,7 @@ const FindHeader = styled.View`
 }
 const FindContents = styled.View`
   background-color: ${colors.white};
-  height: 450px;
+  height: ${constants.width*3/2}px;
   align-items: center;
 `;
 
@@ -36,15 +38,14 @@ const FindContents = styled.View`
 const FriendFrame = styled.View`
   flex-direction: column;
   align-items: center;
-  height: 275px;
-  width: 274px;
+  height: ${constants.width*2/ 3}px;
+  width: ${constants.width*2/ 3}px;
   background-color: ${colors.green};
   border-width: 1px;
   border-color: ${colors.black};
   border-radius: 20px;
-  padding: 8px 0px;
-  margin-left: 8px;
-  margin-top: 8px;
+  padding: ${constants.width*1/48}px 0px;
+  margin-left: -${constants.width*1/6}px;
 `;
 
 {
@@ -53,13 +54,13 @@ const FriendFrame = styled.View`
 const Friend = styled.View`
   flex-direction: column;
   align-items: center;
-  height: 257px;
-  width: 257px;
+  height: ${constants.width*30/48-1}px;
+  width: ${constants.width*30/48}px;
   background-color: ${colors.beige};
   border-radius: 20px;
   padding: 20px 20px;
 `;
-
+{/*
 const FindFooter = styled.View`
   background-color: ${colors.white};
   height: ${constants.height / 10}px;
@@ -68,7 +69,7 @@ const FindFooter = styled.View`
   justify-content: center;
   flex-direction: row;
 `;
-
+*/}
 {
   /*
 const Profile = styled.Image`
@@ -83,29 +84,28 @@ const Profile = styled.Image`
 }
 
 const Name = styled.Text`
-  font-size: 16px;
+  font-size: ${RFValue(fontSizes.xlarge, 812)}px;
   font-weight: bold;
   margin-top: 30px;
 `;
 
 const Distance = styled.Text`
-  font-size: 14px;
+  font-size: ${RFValue(fontSizes.small, 812)}px;
   margin-top: 5px;
   color: ${colors.black};
 `;
 
 const Description = styled.Text`
-  font-size: 14px;
-  margin-top: 20px;
+  font-size: ${RFValue(fontSizes.large, 812)}px;
+  margin-top: ${constants.width*5/48}px;
   color: ${colors.black};
 `;
 
 const TagArea = styled.View`
-  height: 40px;
-  width: 145px;
+  height: ${RFValue(22, 812)}px;
   align-items: center;
   flex-direction: row;
-  margin-top: 60px;
+  margin-top: ${constants.width*5/48}px;
 `;
 {
   /*
@@ -189,7 +189,7 @@ const MailIcon = ({ onPress }) => {
     <TouchableOpacity
       onPress={() => onPress()}
       activeOpacity={0.5}
-      style={{ position: "absolute", top: 377 }}
+  style={{ position: "absolute", top: constants.width*2/3+constants.width*1/5+constants.height/15 }}
     >
       <View
         style={{
@@ -223,13 +223,13 @@ const Find = ({ navigation }) => {
       <FindHeader />
       <FindContents>
         <Swiper
-          width={385}
+          width={constants.width*3/4}
           dotColor={colors.pink}
           activeDotColor={colors.green}
           showsButtons={true}
           showsPagination={true}
-          style={{ padding: 50 }}
-          paginationStyle={{ position: "absolute", top: 275 }}
+          style={{ padding: constants.width*1/5 }}
+          paginationStyle={{ position: "absolute", top: constants.height*1/5 }}
           nextButton={
             <Image
               source={Images.RightArrow.uri}
@@ -244,9 +244,9 @@ const Find = ({ navigation }) => {
           }
           buttonWrapperStyle={{
             position: "absolute",
-            left: 2.5,
-            top: 175,
-            paddingHorizontal: 50,
+            left: -3,
+            top: -constants.width*3/4+22+constants.width*2/3+constants.width*1/5+constants.height/15,
+            paddingHorizontal: constants.width*1/12,
           }}
         >
           <Friends onPress={_handleItemPress} />
@@ -257,7 +257,6 @@ const Find = ({ navigation }) => {
         </Swiper>
         <MailIcon onPress={_handleMailIconPress} />
       </FindContents>
-      <FindFooter></FindFooter>
     </Container>
   );
 };

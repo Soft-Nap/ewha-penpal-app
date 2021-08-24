@@ -48,5 +48,20 @@ const Images = {
   RightArrow: {
     uri: require("../images/rightArrow.png"),
   },
+  StampBasic: {
+    uri: require("../images/StampBasic.png"),
+  },
+  Auditorium: {
+    uri: require("../images/Auditorium.png"),
+  },
+  Ecc: {
+    uri: require("../images/Ecc.png"),
+  },
+  PfeifferHall: {
+    uri: require("../images/PfeifferHall.png"),
+  },
+  StudentUnion: {
+    uri: require("../images/StudentUnion.png"),
+  },
 };
 export { Images };

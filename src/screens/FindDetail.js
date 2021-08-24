@@ -11,6 +11,7 @@ import Tag from '../components/Tag';
 import Buttons from '../components/Buttons';
 import constants from '../utils/constants';
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const Container = styled.View`
     background-color: ${colors.white};
@@ -42,7 +43,7 @@ const Description = styled.Text`
 const TagArea = styled.View`
     background-color: ${colors.white};
     height: 50px;
-    width: 250px;
+    width: ${RFValue(44, 812)*6}px;
     margin-top: 10px;
 `;
 {/*
@@ -63,7 +64,7 @@ const Introduce = styled.View`
     flex-direction: column;
     align-items: center;
     height: 200px;
-    width: ${responsiveWidth(90)}px;
+    width: ${responsiveWidth(90)-50}px;
     background-color: ${colors.beige};
     border-width: 1px;
     border-color: ${colors.black};
@@ -97,7 +98,7 @@ const Tags = () => {
 {/*보내기 버튼*/}
 const SendIcon = ({ onPress }) => {
   return (
-    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.9} style={{position: 'absolute', top: 275, right: responsiveWidth(0)}}>
+    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.9} style={{position: 'absolute', top: responsiveHeight(3.3)*2+responsiveHeight(2.2)+200, right: responsiveWidth(0)}}>
       <Image source = {Images.SendIcon.uri} style = {{width: 60, height: 60, resizeMode: 'contain'}}/>
     </TouchableOpacity>
   );
