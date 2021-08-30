@@ -15,7 +15,7 @@ const SendCheck = ({ navigation }) => {
             backgroundColor: colors.white,
             alignItems: 'center',
              }}>
-            <View style={{ width: '90%', height: constants.height/2, alignItems: 'center', }}>
+            <View style={{ width: '90%', height: constants.height/2, alignItems: 'center', marginTop: 30 }}>
                 <Subtitle text="00님에게 편지를 나르는 중..." bold="true" />
                 <Subtitle text="남은 시간: " />
                 {/*이미지 추가 필요*/}

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components/native';
-import { ScrollView, SafeAreaView, Alert, View, ImageBackground, TouchableOpacity } from 'react-native';
+import { ScrollView, SafeAreaView, Alert, View, ImageBackground, TouchableOpacity, Image, ToastAndroid } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Line from '../components/Line';
 import Subtitle from '../components/Subtitle';
@@ -8,6 +8,10 @@ import {colors} from '../Theme';
 import Profile from '../components/Profile';
 import {Images} from '../images/Images';
 import Tag from '../components/Tag';
+import Buttons from '../components/Buttons';
+import constants from '../utils/constants';
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const Container = styled.View`
     background-color: ${colors.white};
@@ -27,7 +31,7 @@ const Profile = styled.Image`
 
 const Name = styled.Text`
     font-size: 21px;
-    font-weight: 600;
+    font-weight: bold;
 `;
 
 const Description = styled.Text`
@@ -37,11 +41,10 @@ const Description = styled.Text`
 `;
 
 const TagArea = styled.View`
-    align-items: center;
     background-color: ${colors.white};
-    height: 45px;
-    width: 250px;
-    flex-direction: row;
+    height: 50px;
+    width: ${RFValue(44, 812)*6}px;
+    margin-top: 10px;
 `;
 {/*
 const Tag = styled.View`
@@ -61,7 +64,7 @@ const Introduce = styled.View`
     flex-direction: column;
     align-items: center;
     height: 200px;
-    width: 334px;
+    width: ${responsiveWidth(90)-50}px;
     background-color: ${colors.beige};
     border-width: 1px;
     border-color: ${colors.black};
@@ -82,8 +85,11 @@ const Item = () => {
 const Tags = () => {
   return (
       <TagArea>
-        <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
-          <Tag text = "태그1"/><Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
+        <ScrollView contentContainerStyle={{ flexDirection: "row", flexWrap: "wrap", justifyContent: 'center'}}
+        showsVerticalScrollIndicator={true} nestedScrollEnabled={true}>
+          <Tag text = "태그1"/>
+          <Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
+          <Tag/><Tag/><Tag/><Tag/><Tag/><Tag/>
         </ScrollView>
       </TagArea>
   );
@@ -92,22 +98,8 @@ const Tags = () => {
 {/*보내기 버튼*/}
 const SendIcon = ({ onPress }) => {
   return (
-    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.8}>
-      <View
-        style = {{
-        width: 60,
-        height: 60,
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: colors.green,
-        borderRadius: 30,
-        borderWidth: 1,
-        marginLeft: 280,
-      }}>
-          <MaterialIcons name="send"
-            size={40}
-            color={colors.white} />
-      </View>
+    <TouchableOpacity onPress={() => onPress()} activeOpacity = {0.9} style={{position: 'absolute', top: responsiveHeight(3.3)*2+responsiveHeight(2.2)+200, right: responsiveWidth(0)}}>
+      <Image source = {Images.SendIcon.uri} style = {{width: 60, height: 60, resizeMode: 'contain'}}/>
     </TouchableOpacity>
   );
 };
@@ -117,14 +109,10 @@ const FindDetail = ({ navigation }) => {
     useLayoutEffect(() => {
         navigation.setOptions({
           headerRight: () => (
-            <MaterialIcons name="block"
-            size={30}
-            style={{ marginRight: 11 }}
-            onPress={() => Alert.alert("차단", "차단하시겠습니까?", 
-                [{text: "예", onPress: () => console.log("차단 완료")},
-                {text: "아니오", onPress: () => console.log("차단 취소")},]
-              )}
-            />
+            <Buttons onPress={() => Alert.alert("차단", "차단하시겠습니까?", 
+            [{text: "예", onPress: () => ToastAndroid.show('차단 완료!', ToastAndroid.SHORT)},
+            {text: "아니오", onPress: () => {}},]
+          )} text="차단" />
           ),
         });
       }, []);
@@ -158,9 +146,9 @@ const FindDetail = ({ navigation }) => {
             <Description>멀리 떨어져 있음</Description>
             <Tags/>
           </Container>
-          <View style={{width: '90%', alignItems: 'center'}}>
+          <View style={{width: '90%',height: 375,alignItems: 'center'}}>
             <Line/>
-            <Subtitle text="자기소개" bold="true" />
+            <Subtitle text="자기소개"/>
             <Item/>
             <SendIcon onPress={_handleItemPress}/>
           </View>

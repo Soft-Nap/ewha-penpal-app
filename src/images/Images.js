@@ -24,6 +24,9 @@ const Images = {
   MailIcon: {
     uri: require("../images/mailIcon.png"),
   },
+  SendIcon: {
+    uri: require("../images/sendIcon2.png"),
+  },
   E: {
     uri: require("../images/stampE.png"),
   },
@@ -38,6 +41,27 @@ const Images = {
   },
   HomeLetterEmpty: {
     uri: require("../images/HomeLetterEmpty.jpg"),
+  },
+  LeftArrow: {
+    uri: require("../images/leftArrow.png"),
+  },
+  RightArrow: {
+    uri: require("../images/rightArrow.png"),
+  },
+  StampBasic: {
+    uri: require("../images/StampBasic.png"),
+  },
+  Auditorium: {
+    uri: require("../images/Auditorium.png"),
+  },
+  Ecc: {
+    uri: require("../images/Ecc.png"),
+  },
+  PfeifferHall: {
+    uri: require("../images/PfeifferHall.png"),
+  },
+  StudentUnion: {
+    uri: require("../images/StudentUnion.png"),
   },
 };
 export { Images };

@@ -28,7 +28,7 @@ class ModalStamp extends Component {
   constructor() {
     super();
     this.state = {
-      img: Images.E.uri,
+      img: Images.StampBasic.uri,
     };
   }
 
@@ -50,16 +50,16 @@ class ModalStamp extends Component {
                     <View style={styles.stampView}>
                         <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
                           <Pressable onPress={this.changeImage1}>
-                            <Stamp imageUri = {Images.E.uri}/>
+                            <Stamp imageUri = {Images.Auditorium.uri}/>
                           </Pressable>
                           <Pressable onPress={this.changeImage2}>
-                            <Stamp imageUri = {Images.W.uri}/>
+                            <Stamp imageUri = {Images.PfeifferHall.uri}/>
                           </Pressable>
                           <Pressable onPress={this.changeImage3}>
-                            <Stamp imageUri = {Images.H.uri}/>
+                            <Stamp imageUri = {Images.Ecc.uri}/>
                           </Pressable>
                           <Pressable onPress={this.changeImage4}>
-                            <Stamp imageUri = {Images.A.uri}/>
+                            <Stamp imageUri = {Images.StudentUnion.uri}/>
                           </Pressable>
                         </ScrollView>
                     </View>
@@ -73,21 +73,22 @@ class ModalStamp extends Component {
     );
   }
   changeImage1 = () => {
-    this.setState({img:Images.E.uri});
+    this.setState({img:Images.Auditorium.uri});
   }
   changeImage2 = () => {
-    this.setState({img:Images.W.uri});
+    this.setState({img:Images.PfeifferHall.uri});
   }
   changeImage3 = () => {
-    this.setState({img:Images.H.uri});
+    this.setState({img:Images.Ecc.uri});
   }
   changeImage4 = () => {
-    this.setState({img:Images.A.uri});
+    this.setState({img:Images.StudentUnion.uri});
   }
 }
 
 const styles = StyleSheet.create({
   view: {
+    backgroundColor: 'rgba(0, 0, 0, 0.2)',
     flex: 1,
     justifyContent: "center",
     alignItems: "center"

@@ -61,7 +61,7 @@ const FindStack = ({navigation, route}) => {
             <Stack.Screen 
                 name="SendCheck" 
                 component={SendCheck} 
-                options={{ headerTitle: '편지 발송 완료!' }}
+                options={{ headerTitle: '편지 발송 완료!', headerLeft: null }}
             />
         </Stack.Navigator>
     );

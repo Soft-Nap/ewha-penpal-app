@@ -1,12 +1,14 @@
 import React, { useContext, useLayoutEffect, useState } from 'react';
 import styled, {ThemeProvider} from 'styled-components/native';
-import { Modal, Pressable, Alert, View} from 'react-native';
+import { Alert, View} from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Color from '../components/Color';
-import {colors, White, Pink,Beige} from '../Theme';
+import {colors, White, Pink, Beige, fontSizes} from '../Theme';
 import StampModal from '../components/StampModal';
 import Profile from '../components/Profile';
 import constants from '../utils/constants';
+import Buttons from '../components/Buttons';
+import { RFValue } from "react-native-responsive-fontsize";
 
 const Container = styled.View`
     flex: 1;
@@ -36,14 +38,14 @@ const MailHeader = styled.View`
 
 const MailContents = styled.View`
     flex-direction: column;
-    height: ${constants.height/2}px;
+    height: ${constants.height*9/16}px;
     width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
 
 const MailFooter = styled.View`
     flex-direction: row-reverse;
-    height: 30px;
+    height: 35px;
     width: ${constants.width*3/4}px;
     padding: 0px 20px;
 `;
@@ -57,12 +59,12 @@ const HeaderText = styled.View`
 `;
 
 const Person = styled.Text`
-    font-size: 16px;
+    font-size: ${RFValue(fontSizes.xlarge, 812)}px;
     font-weight: 600;
 `;
 
 const Time = styled.Text`
-    font-size: 12px;
+    font-size: ${RFValue(fontSizes.base, 812)}px;
     color: ${colors.black};
 `;
 
@@ -76,7 +78,7 @@ const Stamp = styled.Image`
 `; */}
 
 const Input = styled.TextInput`
-    font-size: 14px;
+    font-size: ${RFValue(fontSizes.large, 812)}px;
 `;
 
 const ColorSelectArea = styled.View`
@@ -129,17 +131,11 @@ const Send = ({ navigation }) => {
         navigation.setOptions({
             headerRight: () => (
                 <View style={{flexDirection: "row" }}>
-                    <MaterialIcons name="inbox"
-                    size={30}
-                    style={{ marginRight: 11 }}
-                    onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
+                    <Buttons onPress={() => Alert.alert("저장", "작성한 내용을 임시 저장하시겠습니까?", 
                     [{text: "예", onPress: () => navigation.popToTop()},
                     {text: "취소", onPress: () => {}},]
-                    )} />
-                    <MaterialIcons name="send"
-                    size={30}
-                    style={{ marginRight: 11 }}
-                    onPress={() => navigation.navigate('SendCheck')} />
+                    )} text="저장"/>
+                    <Buttons onPress={() => navigation.navigate('SendCheck')} text="보내기" isSend={true}/>
                 </View>
           ),
           
