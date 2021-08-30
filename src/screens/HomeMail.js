@@ -6,18 +6,21 @@ import { colors } from "../Theme";
 import { Images } from "../images/Images";
 import Stamp from "../components/Stamp";
 import constants from "../utils/constants";
+import { responsiveWidth } from "react-native-responsive-dimensions";
+import { RFValue } from "react-native-responsive-fontsize";
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
   background-color: ${colors.white};
   align-items: center;
 `;
 
 const Pad = styled.View`
+  margin-top: ${RFValue(20, 812)};
   flex-direction: column;
   align-items: center;
-  height: ${(constants.height * 3) / 4}px;
-  width: ${(constants.width * 3) / 4}px;
+  height: 90%;
+  width: 90%;
   background-color: ${colors.beige};
   border-width: 1px;
   border-color: ${colors.black};
@@ -28,22 +31,22 @@ const Pad = styled.View`
 const MailHeader = styled.View`
   flex-direction: row;
   height: 80px;
-  width: ${(constants.width * 3) / 4}px;
-  padding: 0px 20px;
+  width: ${responsiveWidth(80)};
+  padding: 0px 10px;
 `;
 
 const MailContents = styled.View`
   flex-direction: column;
   height: 480px;
-  width: ${(constants.width * 3) / 4}px;
-  padding: 0px 20px;
+  width: ${responsiveWidth(80)};
+  padding: 0px 10px;
 `;
 
 const MailFooter = styled.View`
   flex-direction: row-reverse;
   height: 30px;
-  width: ${(constants.width * 3) / 4}px;
-  padding: 0px 20px;
+  width: ${responsiveWidth(80)};
+  padding: 0px 10px;
 `;
 
 const HeaderText = styled.View`
