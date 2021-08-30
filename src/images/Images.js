@@ -4,7 +4,7 @@
 
 const Images = {
   logo: {
-    uri: require("../images/loginLogo.jpg"),
+    uri: require("../images/loginLogo.png"),
   },
   Stamp: {
     uri: require("../images/Stamp.png"),
@@ -40,7 +40,7 @@ const Images = {
     uri: require("../images/stampA.png"),
   },
   HomeLetterEmpty: {
-    uri: require("../images/HomeLetterEmpty.jpg"),
+    uri: require("../images/HomeLetterEmpty.png"),
   },
   LeftArrow: {
     uri: require("../images/leftArrow.png"),
@@ -62,6 +62,12 @@ const Images = {
   },
   StudentUnion: {
     uri: require("../images/StudentUnion.png"),
+  },
+  Sending: {
+    uri: require("../images/Sending.png"),
+  },
+  logingLogo: {
+    uri: require("../images/loginLogo.png"),
   },
 };
 export { Images };
