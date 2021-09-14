@@ -117,6 +117,7 @@ captures/
 
 # Google Services (e.g. APIs or Firebase)
 # google-services.json
+firebase.json
 
 # Freeline
 freeline.py
